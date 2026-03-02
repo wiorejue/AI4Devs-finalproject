@@ -14,13 +14,24 @@ Puedes añadir adicionalmente la conversación completa como link o archivo adju
 
 ---
 
+Prompts elaborados con Gemini
+
 ## 1. Descripción general del producto
 
 **Prompt 1:**
+Con la descripcion general del producto se lanzo este prompt:
+
+Lo primero es organizar la descripcion general del producto
 
 **Prompt 2:**
+Elaborar la documentación del producto: definir objetivos, características y funcionalidades
 
 **Prompt 3:**
+Define un flujo E2E prioritario que cree valor completo.
+
+- Planifica 3–5 historias Must-Have y 
+
+- 1–2 Should-Have opcionales para ese flujo.
 
 ---
 

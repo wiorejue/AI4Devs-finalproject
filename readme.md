@@ -297,19 +297,19 @@ Para asegurar que la experiencia en **arteflujo** sea verdaderamente "premium" y
 * **Frontend:** Pruebas de componentes individuales en **React/Next.js**, como el funcionamiento mecánico del "Dial de Tiempo" y el renderizado correcto de los iconos de acceso (🟢, 🟡, 🔵).  
 * **Mocking de APIs:** Se utilizarán herramientas para simular las respuestas de YouTube, MUBI y Vimeo, evitando consumir cuotas reales durante el desarrollo y asegurando que el sistema maneje correctamente metadatos incompletos.
 
-#### **2.4.2. Pruebas de Integración (Capa de Datos y APIs)**
+#### 2.4.2. Pruebas de Integración (Capa de Datos y APIs)
 
 * **Consistencia de Metadatos:** Verificación de que la relación entre la entidad **OBRA** y sus **HITOS** (premios) o **DATOS\_CONTEXTO** se mantenga íntegra en PostgreSQL.  
 * **Validación de Smart Embedding:** Pruebas automatizadas para confirmar que los *iframes* de terceros se cargan correctamente y que el sistema detecta si un video permite ser embebido o requiere *Deep Linking*.  
 * **Circuit Breaker Testing:** Simulación de caídas en APIs externas para verificar que el backend responda con contenido alternativo o estados de "No disponible" sin degradar la plataforma completa.
 
-#### **2.4.3. Pruebas de Extremo a Extremo (E2E \- Flujos de Usuario)**
+#### 2.4.3. Pruebas de Extremo a Extremo (E2E - Flujos de Usuario)
 
 * **Flujo de Descubrimiento:** Automatización del recorrido donde un usuario ajusta el filtro por tiempo, selecciona un "mood" y visualiza resultados coherentes.  
 * **Persistencia en Watchlist:** Validación de que el guardado de una obra desde diversas fuentes se refleje instantáneamente en el perfil del usuario.  
 * **Sincronización del Modo Contexto:** Pruebas de tiempo para asegurar que los pop-ups informativos aparezcan en la marca de tiempo exacta definida en la entidad **DATO\_CONTEXTO**.
 
-#### **2.4.3. Pruebas de Carga y Rendimiento**
+#### 2.4.4. Pruebas de Carga y Rendimiento
 
 * **Ráfagas de Tráfico:** Simulación de usuarios concurrentes durante eventos especiales (como anuncios de cortos premiados) para validar el auto-escalado en **AWS Fargate**.  
 * **Latencia de Búsqueda:** Medición de los tiempos de respuesta del API Gateway y la eficiencia de la caché en **Redis** al consultar catálogos indexados.
@@ -1047,11 +1047,15 @@ Crear la página del eje "The Cinema" con su buscador especializado por nombre d
 
 ## 7. Pull Requests
 
-**Pull Request 1**
-Titulo: Entrega 1 – Documentación técnica
-Rama: feature-entrega1-WAOR
+| PR # | Título | Rama | Descripción | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | Entrega 1 – Documentación técnica | `feature-entrega1-WAOR` | Documentación técnica inicial, arquitectura y modelo de datos. | ✅ Merged |
+| 2 | Configuración de Microservicios | `feature-microservices-WAOR` | Estructura base de NestJS y API Gateway. | 🏗️ Draft |
+| 3 | Frontend - Dial de Tiempo | `feature-frontend-dial-WAOR` | Implementación del buscador por tiempo y mood. | ⏳ Pending |
 
-**Pull Request 2**
+---
 
-**Pull Request 3**
+> [!TIP]
+> Puedes consultar el detalle de cada Pull Request directamente en la pestaña de **Pull Requests** de este repositorio en GitHub.
+
 

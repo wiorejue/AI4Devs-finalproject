@@ -401,11 +401,164 @@ Debes diseñar la especificación técnica de la API para **arteflujo**, un "Hub
 ---
 
 ### 5. Historias de Usuario
+Los prompts para generar historias de usuario estan dados en Sudolang
+
+SoftwareDevelopmentProcess {
+  State {
+    PRD: ""
+    UserPersonas: []
+    Requirements: []
+    UserStories: []
+    WorkTickets: []
+  }
+
+  Constraints {
+    Ensure PRD is uploaded before proceeding.
+    Ensure each role completes their actions before moving to the next.
+    Generate only one User Story per user persona.
+    Ensure work tickets are small and granular, with maximum 3 hours effort each.
+    Break down any task exceeding 3 hours into smaller sub-tickets.
+  }
+
+  UploadPRD() {
+    log("Por favor, sube el Documento de Requisitos del Producto (PRD) o copia y pega el texto del PRD aquí:")
+    PRD = getInput("Inserta el PRD aquí:")
+  }
+
+  ProductOwner {
+    ReviewPRD() {
+      log("El Product Owner revisará el PRD para definir los 'User Personas' y los requisitos.")
+      UserPersonas = extractUserPersonas(PRD)
+      Requirements = extractRequirements(PRD)
+      log("User Personas y Requisitos definidos.")
+      confirmation = getInput("¿Confirmas esta información extraída del PRD? [Sí/No]. Si respondes 'No', podrás modificar lo que necesites:")
+
+      if (confirmation.toLowerCase() == "no") {
+        log("Indica qué deseas cambiar y proporciona los nuevos valores.")
+        log("El sistema procesará automáticamente tus cambios.")
+      }
+    }
+  }
+
+  BusinessAnalyst {
+    ReviewPRDAndCalculateUserStories() {
+      log("El Business Analyst revisará el PRD y calculará el número posible de 'User Stories'.")
+      UserStories = calculateUserStories(PRD, UserPersonas)
+      log("User Stories alineadas con User Personas.")
+    }
+
+    GenerateUserStoriesAutomatically() {
+      choice = getInput("Indicar si quieres generar 'User Stories' automáticamente: [Sí/No]")
+      if (choice == "Sí") {
+        UserStories = generateUserStoriesAutomatically()
+        log("User Stories generados automáticamente.")
+      } else {
+        specificUserStory = getInput("Usa el siguiente User Story: [pega el User Story aquí]:")
+        analyzeUserStory(specificUserStory)
+      }
+    }
+
+    AnalyzeUserStory() {
+      for each story in UserStories {
+        log("Generar un 'User Story' y esperar la indicación para proceder con el siguiente o generar los 'Tickets de Trabajo (Jira)'.")
+        analyze(story)
+        valid = validateUserStory(story, PRD, UserPersonas)
+        if (!valid) {
+          log("Este User Story está fuera del scope")
+        }
+      }
+    }
+  }
+
+  SoftwareArchitectAndTechLead {
+    GenerateWorkTickets() {
+      log("Generación de Tickets de Trabajo (Jira).")
+      for each story in UserStories {
+        tickets = calculateWorkTickets(story)
+        WorkTickets += tickets
+        for each ticket in tickets {
+          log("Generar cada 'Ticket de Trabajo (Jira)':")
+          log("ID del Ticket: $ticket.id")
+          log("Título del Ticket: $ticket.title")
+          log("Descripción: $ticket.description")
+          log("Criterios de aceptación: $ticket.acceptanceCriteria")
+          log("Prioridad: $ticket.priority")
+          log("Estimación de esfuerzo (en horas): $ticket.effort")
+          log("Tareas Técnicas: $ticket.tasks")
+          log("Notas: $ticket.notes")
+        }
+      }
+      log("Tickets de Trabajo generados.")
+    }
+
+    GenerateDocumentationAndTestPlan() {
+      log("Generar el 'documento de especificación' para BDD y el 'plan de pruebas'.")
+      specificationDocument = generateSpecificationDocument(UserStories, WorkTickets)
+      testPlan = generateTestPlan(UserStories, WorkTickets)
+      log("Documento de especificación y Plan de Pruebas generados.")
+    }
+  }
+
+  ProceedWithNextUserStory() {
+    choice = getInput("Indicar si quieres proceder con el siguiente 'User Story': [Sí/No]")
+    if (choice == "Sí") {
+      nextUserStory()
+    } else {
+      finalize()
+    }
+  }
+
+  FinalOutput() {
+    log("Salida Final:")
+    log("User Story detallado.")
+    log("Todos los 'Tickets de Trabajo (Jira)' con descripciones detalladas y ejemplos de código si es relevante. Cada ticket en un archivo markdown.")
+    log("Documento de especificación descargable para pruebas BDD.")
+    log("Plan de Pruebas descargable.")
+  }
+
+  Commands {
+    /uploadPRD | UploadPRD
+    /productOwnerReview | ProductOwner.ReviewPRD
+    /businessAnalystReview | BusinessAnalyst.ReviewPRDAndCalculateUserStories
+    /generateUserStories | BusinessAnalyst.GenerateUserStoriesAutomatically
+    /analyzeUserStory | BusinessAnalyst.AnalyzeUserStory
+    /generateWorkTickets | SoftwareArchitectAndTechLead.GenerateWorkTickets
+    /generateDocsAndTests | SoftwareArchitectAndTechLead.GenerateDocumentationAndTestPlan
+    /proceedWithNextUserStory | ProceedWithNextUserStory
+    /finalOutput | FinalOutput
+  }
+
+  welcome() {
+    log("Welcome to the Software Development Process Prompt. Follow the steps to manage your project effectively.")
+  }
+}
+
+welcome()
 
 **Prompt 1:**
+Se ejecuta el flujo con la ayuda del agente de antigravity, modelo Claude Sonnet 4.6(Thinking)
+
+Ejecutar paso a paso (/productOwnerReview → confirmación → /generateUserStories → etc.)
+Paso 1 de 5 — ProductOwner.ReviewPRD()
+¿Confirmas esta información extraída del PRD?
+
+3 User Personas: Curioso Cultural, Melómano, Cinéfilo
+12 Requisitos Funcionales (RF-001 a RF-012)
+7 Requisitos No Funcionales (RNF-001 a RNF-007)
+Responde Sí para continuar al paso 2 (/generateUserStories), o No e indica qué deseas cambiar.
+/Si
 
 **Prompt 2:**
+Paso 2 de 5 — BusinessAnalyst.GenerateUserStoriesAutomatically()
+Validación y confirmación
+#	Persona	User Story	Prioridad	RF cubiertos
+US-1	Curioso Cultural	Descubrimiento por Tiempo y Mood + Watchlist	Must-Have P1	RF-003,004,007,009,012
+US-2	Melómano	Exploración de Fragmentos Musicales + Reproducción	Should-Have P2	RF-001,002,005,006,009,011
+US-3	Cinéfilo	Búsqueda por Festival/Hito + Acceso Transparente	Should-Have P2	RF-001,002,006,010,011
+¿Confirmas estas 3 User Stories?
 
+Responde Sí para guardarlas y continuar al Paso 3 (/generateWorkTickets), o indica qué deseas ajustar.
+/Si
 **Prompt 3:**
 
 ---
@@ -413,10 +566,28 @@ Debes diseñar la especificación técnica de la API para **arteflujo**, un "Hub
 ### 6. Tickets de Trabajo
 
 **Prompt 1:**
+Paso 3 de 5 — SoftwareArchitectAndTechLead.GenerateWorkTickets() — US-1
+
 
 **Prompt 2:**
+¿Deseas continuar con la generación de tickets para la US-2 (El Melómano), o pasamos al Paso 4 — Documento BDD + Plan de Pruebas para la US-1?
+/continuar con generación de tickets para la US-2 (El Melómano)
 
 **Prompt 3:**
+¿Continúo con los tickets de US-3 (El Cinéfilo), o pasamos a generar el Documento BDD + Plan de Pruebas para las US completadas?
+/almacenar la informacion de work tickets del user persona 1, y toda la informacion generada del user persona 2
+
+/guardar las user stories de  us-2
+
+¿Continuamos con los tickets de US-3 (El Cinéfilo) o prefieres otro paso?
+/Continúar con los tickets de US-3 (El Cinéfilo) y guardarlos
+
+Quedaron pendientes del flujo SudoLang:
+
+Paso 4 — Documento BDD (escenarios Gherkin) para cada User Story
+Paso 5 — Plan de Pruebas descargable
+¿Continuamos con el BDD y el Plan de Pruebas, o hay otra prioridad?
+/si, ejecutar pasos 4 y 5, y guardar la informacion
 
 ---
 

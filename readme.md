@@ -13,25 +13,24 @@
 
 ## 0. Ficha del proyecto
 
-### **0.1. Tu nombre completo:**
+### 0.1. Tu nombre completo:
 William Alberto Orejuela Rios
 
-### **0.2. Nombre del proyecto:**
+### 0.2. Nombre del proyecto:
 Sitio web LateArte
 
-### **0.3. Descripción breve del proyecto:**
+### 0.3. Descripción breve del proyecto:
 Latearte (un hub) donde lo artístico late con fuerza, es punto de encuentro con las artes, el ingenio y la creatividad; es una plataforma web de streaming de alta especialidad diseñada para el consumo de contenidos culturales, independientes, de prestigio y de contenidos ingeniosos, audaces y creativos.
 
-### **0.4. URL del proyecto:**
+### 0.4. URL del proyecto:
 https://latearte.com/
 
 ### 0.5. URL o archivo comprimido del repositorio
-https://github.com/williamorejuela/LateArte
-
+https://github.com/wiorejue/AI4Devs-finalproject
 
 ---
 
-## 1. Descripción general del producto
+## 📄1. Descripción general del producto
 
 Lugar para conectar con contenidos artísticos, para entremezclar ideas nuevas con contenidos destacados; presentar una alternativa refrescante al "scroll" infinito de las plataformas comerciales. Se busca crear una plataforma de curaduría premium, donde se selecciona, organiza y gestiona contenidos artísticos, un refugio para quienes buscan calidad artística sobre cantidad algorítmica.
 
@@ -39,7 +38,7 @@ Se quiere crear un **Meta-Buscador Especializado** o un **Hub de Curaduría**, q
 
 Se quiere presentar al usuario contenido gratuito, acceder de forma integrada a algunos contenidos y además presentar opciones de contenido de pago, y que las pueda distinguir fácilmente.
 
-### **1.1. Objetivo:**
+### 1.1. Objetivo:
 
 * **Objetivo General:** Crear un ecosistema digital que centralice y clasifique el contenido cultural y artístico de alta calidad disperso en la web, facilitando el descubrimiento y el acceso directo.  
 * **Objetivos Específicos:**  
@@ -47,7 +46,7 @@ Se quiere presentar al usuario contenido gratuito, acceder de forma integrada a 
   * **Transparencia de Acceso:** Informar claramente al usuario si el contenido es gratuito, bajo suscripción (Netflix, MUBI, Qello) o de pago por evento (VOD).  
   * **Experiencia Fluida:** Reducir la fricción mediante la reproducción embebida siempre que las licencias y APIs lo permitan.
 
-### **1.2. Pilares del Contenido**
+### 1.2. Pilares del Contenido
 
 La oferta se divide en tres ejes verticales que definen la identidad de la aplicación:
 
@@ -57,14 +56,14 @@ La oferta se divide en tres ejes verticales que definen la identidad de la aplic
 * **Escenarios (The Stage):** Un espacio dedicado a la música y las artes escénicas. No solo conciertos completos, sino **curaduría de fragmentos magistrales** (la "pieza de oro" de una presentación). Abarca desde la potencia de una orquesta sinfónica hasta la intimidad de un club de Jazz o un bolero.  
 * **Cine de Autor (The Cinema):** Un catálogo alejado del *blockbuster*. Se centra en el cine de festivales (Cannes, Berlinale, etc.), cine independiente y obras que alimentan la **"Cinefilia Pura"**, donde la visión del director es el eje central.
 
-### **1.3. Perfil del Usuario Objetivo**
+### 1.3. Perfil del Usuario Objetivo
 
 * **El Curioso Cultural:** Personas que buscan aprender o descubrir algo nuevo en sus tiempos libres.  
 * **El Melómano y Amante del Arte:** Usuarios que valoran la interpretación técnica, desde un solo de violín hasta una puesta en escena teatral.  
 * **Cinefilitas:** Espectadores que huyen de los clichés de Hollywood y buscan profundidad temática.
 
 
-### **1.4. Características Principales**
+### 1.4. Características Principales
 
 * **Agregación Inteligente:** La plataforma no solo aloja, sino que indexa contenido de terceros (YouTube, Vimeo, plataformas de nicho).  
 * **Etiquetado de "Estatus de Acceso":** Un sistema de iconos visuales que indica:  
@@ -73,7 +72,7 @@ La oferta se divide en tres ejes verticales que definen la identidad de la aplic
   * 🔵 **Premium/VOD:** Pago único por alquiler o compra.  
 * **Reproductor Unificado:** Capacidad de embeber marcos de reproducción para que el usuario no abandone la web (sujeto a disponibilidad técnica del origen).
 
-### **1.5. Funcionalidades Detalladas**
+### 1.5. Funcionalidades Detalladas
 
 #### **A. Módulo de Usuario y Navegación**
 
@@ -95,7 +94,7 @@ Cada miniatura de video debe mostrar:
 * Smart Embedding: Si el video permite iframe (como YouTube o Vimeo), se reproduce en una ventana modal dentro de Artesir.  
 * **Deep Linking:** Si el contenido es de una plataforma cerrada (como Netflix o Apple TV), el botón de "Play" abre directamente la aplicación o la web externa en el minuto exacto.
 
-### **1.6. Estructura de Secciones (Matriz de Contenido)**
+### 1.6. Estructura de Secciones (Matriz de Contenido)
 
 | Sección | Funcionalidad Específica | Subcategorías / Géneros | Atributo Diferencial | Ejemplo de Contenido |
 | :---- | :---- | :---- | :---- | :---- |
@@ -103,16 +102,17 @@ Cada miniatura de video debe mostrar:
 | **Conciertos** | Selector de "Solo Fragmentos" o "Concierto Completo". | Sinfónico, Ópera, Teatro, Homenajes, Jazz, Salsa, Rock, Pop. | Versiones instrumentales y "**highlights**". | El solo de trompeta de un concierto de Jazz. |
 | **Cine** | Ficha técnica con enfoque en el estilo visual. | Cine de Autor, Independiente, Cine Cultural. | Narrativas no convencionales. | Películas de cine independiente o experimental. |
 
-### **1.7. Reglas de Negocio**
+### 1.7. Reglas de Negocio
 
 * **Prioridad de Visualización:** El contenido gratuito y embebible tendrá prioridad en los algoritmos de recomendación para mejorar la retención del usuario en la web.  
 * **Afiliación:** Enlaces a plataformas de pago podrán incluir códigos de afiliado para monetizar la plataforma.
 
 
-### **1.8.🔄 Diagramas de secuencia**
+### 1.8. 🔄 Diagramas de secuencia
+
 Estos son los diagramas de secuencia detallados para las tres operaciones críticas de **arteflujo**. Estos diagramas ilustran la interacción entre los microservicios, la validación de seguridad y la integración con fuentes de contenido externas.
 
-**1.8.1. Búsqueda Curada (El Dial de Tiempo)**
+#### 1.8.1. Búsqueda Curada (El Dial de Tiempo)
 
 Este flujo muestra cómo el sistema filtra contenido basado en la duración y el estado de ánimo, priorizando la velocidad de respuesta mediante el uso de la base de datos de metadatos indexados.
 
@@ -137,7 +137,7 @@ sequenceDiagram
 
 ---
 
-**1.8.2. Reproducción Inteligente y Modo Contexto**
+#### 1.8.2. Reproducción Inteligente y Modo Contexto
 
 Este es el flujo más complejo, donde el sistema decide la técnica de visualización y prepara la capa de información educativa sincronizada.
 
@@ -178,7 +178,7 @@ sequenceDiagram
 
 ---
 
-**1.8.3. Persistencia en Watchlist**
+#### 1.8.3. Persistencia en Watchlist
 
 Este flujo valida la seguridad del sistema mediante la verificación de tokens antes de realizar operaciones de escritura en el perfil del usuario.
 
@@ -213,7 +213,7 @@ sequenceDiagram
 
 ---
 
-**Puntos de Decisión Críticos en los Diagramas:**
+#### Puntos de Decisión Críticos en los Diagramas
 
 * **En el Diagrama 2 (Reproducción):** Se utiliza una ejecución en paralelo (par) para cargar los metadatos de acceso y los datos del **Modo Contexto** simultáneamente, reduciendo el tiempo de carga percibido por el usuario.  
 * **En el Diagrama 3 (Watchlist):** El **API Gateway** actúa como primer filtro de seguridad, delegando la validación del token al servicio de identidad antes de permitir cualquier cambio en la base de datos de usuarios.
@@ -221,7 +221,7 @@ sequenceDiagram
 
 ---
 
-## **🏗️2. Arquitectura del sistema, de Alto Nivel: Microservicios Orientados a Eventos**
+## 🏗️ 2. Arquitectura del sistema de Alto Nivel: Microservicios Orientados a Eventos
 
 He seleccionado una arquitectura de **Microservicios (Container-based)** debido a la necesidad de **escalabilidad independiente** y la integración crítica con múltiples APIs externas.
 
@@ -229,7 +229,7 @@ He seleccionado una arquitectura de **Microservicios (Container-based)** debido 
 
 La arquitectura de **arteflujo** está diseñada bajo un patrón de **Microservicios Orientados a Eventos**, organizada en cuatro capas principales para asegurar escalabilidad y resiliencia:
 
-### **2.1 Capas del Sistema**
+### 2.1. Capas del Sistema
 
 * **Capa de Cliente y Edge:** El usuario accede a través de una aplicación **Next.js** optimizada con un **CDN** para entrega rápida de contenido estático. Las peticiones son recibidas por un **Balanceador de Carga / Reverse Proxy** que distribuye el tráfico y protege los servicios internos.  
 * **Capa de Servicios (Lógica de Negocio):** Un **API Gateway** actúa como punto de entrada único, redirigiendo las solicitudes a microservicios especializados:  
@@ -240,20 +240,14 @@ La arquitectura de **arteflujo** está diseñada bajo un patrón de **Microservi
 * **Capa de Integración:** El Motor de Agregación se conecta con las **APIs de terceros** (YouTube, MUBI, Vimeo, etc.). Utiliza una capa de **Caché (Redis)** para almacenar metadatos frecuentes, optimizando el uso de cuotas de las APIs y mejorando los tiempos de respuesta.  
 * **Capa de Datos:** Se utiliza **PostgreSQL** como base de datos centralizada para mantener la integridad referencial de las obras, hitos y datos de contexto. Además se tiene una capa de **Caché (Redis)** para resultados de búsqueda frecuentes y estados de acceso.
 
-## 
-
-## ---
-
-**🛠️ 2.2 Stack Tecnológico Recomendado**
+### 🛠️ 2.2. Stack Tecnológico Recomendado
 
 * **Frontend:** **Next.js (React)**. Esencial para el **SEO** de películas y cortos, permitiendo Server-Side Rendering (SSR) para las fichas técnicas.  
 * **Backend:** **Node.js (NestJS)**. Ideal para manejar múltiples peticiones asíncronas a APIs de terceros de forma eficiente.  
 * **Base de Datos:** **PostgreSQL**. Garantiza la integridad referencial entre Obras, Hitos y Datos de Contexto.  
 * **Caché/Mensajería:** **Redis** para sesiones y **RabbitMQ/Kafka** para sincronizar actualizaciones de catálogos externos.
 
-### ---
-
-**2.3 Estructura de Ficheros Propuesta**
+### 2.3. Estructura de Ficheros Propuesta
 
 Siguiendo el stack tecnológico recomendado (**Next.js** para el frontend y **NestJS/Node.js** para el backend), esta es la organización de carpetas sugerida:
 
@@ -322,7 +316,7 @@ Para asegurar que la experiencia en **arteflujo** sea verdaderamente "premium" y
 
 ---
 
-### **Resumen de Herramientas de Testing**
+#### Resumen de Herramientas de Testing
 
 | Nivel de Prueba | Herramienta Recomendada | Objetivo Principal |
 | :---- | :---- | :---- |
@@ -332,9 +326,7 @@ Para asegurar que la experiencia en **arteflujo** sea verdaderamente "premium" y
 | **Carga** | K6 o JMeter | Estresar el Motor de Agregación. |
 | **Contratos API** | Pact | Asegurar compatibilidad con APIs de terceros. |
 
-## 
-
-**🔄 2.5 Estrategia de Integración y Resiliencia**
+### 🔄 2.5. Estrategia de Integración y Resiliencia
 
 Para gestionar las cuotas de APIs y la disponibilidad de fuentes externas:
 
@@ -342,19 +334,17 @@ Para gestionar las cuotas de APIs y la disponibilidad de fuentes externas:
 * **Caché de Metadatos:** No se consulta la API externa en cada búsqueda; se indexan los metadatos y se actualizan mediante un *cron job* nocturno para respetar los límites de cuota.  
 * **Validación de Enlaces:** Un servicio en segundo plano verifica periódicamente que los enlaces de **Deep Linking** sigan activos.
 
-## ---
-
-**🔐 2.6 Seguridad y Monetización**
+### 🔐 2.6. Seguridad y Monetización
 
 1. **Watchlists:** Las sesiones se gestionan mediante **JWT (JSON Web Tokens)** almacenados de forma segura.  
 2. **Afiliados:** Los enlaces a plataformas como MUBI o Netflix incluyen parámetros de rastreo inyectados dinámicamente por el Backend al generar el **Botón de Play**.  
 3. **Protección:** Implementación de **WAF (Web Application Firewall)** para mitigar ataques de scraping al catálogo curado.
 
-### **Ampliación de la Capa de Seguridad**
+#### Ampliación de la Capa de Seguridad
 
 La estrategia de seguridad se divide en cuatro pilares fundamentales para garantizar la confianza del usuario y la protección de los activos digitales:
 
-#### **2.6.1. Gestión de Identidades y Control de Acceso (IAM)**
+#### 2.6.1. Gestión de Identidades y Control de Acceso (IAM)
 
 * **Autenticación Robusta:** Se implementará **JSON Web Tokens (JWT)** para la gestión de sesiones sin estado, permitiendo que los microservicios validen la identidad del usuario de forma independiente. Para el futuro, se contempla la integración de **OAuth2/OpenID Connect** (Google/Apple ID) para facilitar el registro de los "Curiosos Culturales".  
 * **Autorización Basada en Roles (RBAC):** Se definirán niveles de acceso específicos:  
@@ -362,27 +352,25 @@ La estrategia de seguridad se divide en cuatro pilares fundamentales para garant
   * **Curador/Admin:** Permisos para gestionar el catálogo, actualizar "Hitos" y moderar los "Datos de Contexto".  
 * **Seguridad en el API Gateway:** El Gateway actuará como el único punto de entrada, validando firmas de tokens y scopes antes de redirigir el tráfico a los microservicios internos.
 
-#### **2.6.2. Protección de Datos y Privacidad**
+#### 2.6.2. Protección de Datos y Privacidad
 
 * **Cifrado de Extremo a Extremo:** Toda la comunicación entre el cliente y el servidor, así como entre microservicios, se realizará mediante **TLS 1.3 (HTTPS)**.  
 * **Datos en Reposo:** La base de datos **PostgreSQL** contará con cifrado de disco (AES-256) para proteger la información de los perfiles y las listas de deseos.  
 * **Gestión de Secretos:** Las llaves de API de terceros (YouTube, Vimeo, MUBI) y las credenciales de base de datos nunca se almacenarán en el código fuente; se utilizarán servicios como **AWS Secrets Manager** o **HashiCorp Vault**.
 
-#### **2.6.3. Seguridad en Integraciones y Monetización**
+#### 2.6.3. Seguridad en Integraciones y Monetización
 
 * **Integridad de Enlaces de Afiliación:** Para evitar el fraude o la manipulación de enlaces de pago (VOD/Suscripción), el sistema generará y firmará dinámicamente los parámetros de afiliado en el backend justo antes de la redirección.  
 * **Validación de Origen (CORS):** Se configurarán políticas estrictas de *Cross-Origin Resource Sharing* para asegurar que solo el frontend oficial de **arteflujo** pueda consumir los recursos del API Gateway.  
 * **Sanitización de Contenido:** Debido a que la plataforma permite "Datos de Contexto" y descripciones culturales, se implementará una limpieza estricta contra ataques **XSS (Cross-Site Scripting)** en el renderizado de pop-ups y fichas técnicas.
 
-#### **2.6.4. Resiliencia y Defensa Perimetral**
+#### 2.6.4. Resiliencia y Defensa Perimetral
 
 * **Mitigación de DDoS y Scraping:** Se utilizará un **Web Application Firewall (WAF)** para bloquear patrones de tráfico maliciosos y proteger el catálogo curado de bots que intenten extraer la base de datos de "Hitos" y premios.  
 * **Rate Limiting:** Se aplicarán límites de tasa por IP y por usuario para prevenir abusos en el motor de búsqueda y proteger las cuotas de las APIs externas.  
 * **Aislamiento de Red:** Los microservicios y la base de datos residirán en una **VPC (Virtual Private Cloud)** privada, sin exposición directa a Internet, comunicándose únicamente a través del Load Balancer y el API Gateway.
 
-## ---
-
-**📋 2.7 Flujo de Datos: Búsqueda y Guardado**
+### 📋 2.7. Flujo de Datos: Búsqueda y Guardado
 
 **Escenario:** *Usuario busca un corto de 15 min de MUBI y lo guarda en su lista.*
 
@@ -391,9 +379,7 @@ La estrategia de seguridad se divide en cuatro pilares fundamentales para garant
 * **Visualización:** Se retorna la **Card** con el sello de "Suscripción" (🟡) y el logo de MUBI.  
 * **Acción:** El usuario hace clic en "Guardar". La petición viaja al **Servicio de Usuario**, que inserta el id\_obra y id\_usuario en la tabla **LISTA\_DESEOS**.
 
-## ---
-
-**📊 2.8 Diagrama del Sistema (Mermaid)**
+### 📊 2.8. Diagrama del Sistema
 
 ```mermaid
 graph TD
@@ -426,9 +412,7 @@ graph TD
     end
 ```
 
-## ---
-
-**☁️ 2.9 Propuesta de Infraestructura (AWS)**
+### ☁️ 2.9. Propuesta de Infraestructura (AWS)
 
 * **Computación:** **AWS Fargate (ECS)** para ejecutar los microservicios en contenedores sin gestionar servidores.  
 * **Almacenamiento:** **Amazon RDS (PostgreSQL)** para el modelo de datos y **Amazon ElastiCache** para Redis.  
@@ -438,9 +422,9 @@ graph TD
 
 ---
 
-## **🗂️ 3. Modelo de datos** 
+## 🗂️ 3. Modelo de datos
 
-### **3.1\. Contexto del Proyecto (MVP de arteflujo)**
+### 3.1. Contexto del Proyecto (MVP de arteflujo)
 
 Estas entidades son las principales para el MVP:
 
@@ -451,9 +435,9 @@ Estas entidades son las principales para el MVP:
 * **Usuario:** Perfil básico.  
 * **Watchlist:** Lista de deseos para guardar contenido.
 
-### **3.2\. Diccionario de Datos**
+### 3.2. Diccionario de Datos
 
-#### **Entidades de Contenido**
+#### Entidades de Contenido
 
 * **OBRA:** Almacena la pieza artística central (corto, concierto o película).  
   * valor\_cultural: Texto breve (máx 280 caracteres) que justifica su importancia.  
@@ -462,27 +446,23 @@ Estas entidades son las principales para el MVP:
 * **HITO:** Sellos de calidad o premios (Ej: "Ganador Cannes", "Nominado Oscar").  
 * **DATO\_CONTEXTO:** Datos históricos o técnicos que aparecen mediante pop-ups durante la reproducción en el "Modo Contexto".
 
-#### **Entidades de Acceso y Operación**
+#### Entidades de Acceso y Operación
 
 * **PLATAFORMA\_ORIGEN:** Identifica si el contenido viene de YouTube, Vimeo, MUBI, etc..  
 * **ESTADO\_ACCESO:** Clasifica el acceso en Abierto (Verde), Suscripción (Amarillo) o VOD (Azul).  
 * **LISTA\_DESEOS:** Tabla intermedia que permite al usuario guardar obras de diversas fuentes en un solo lugar.
 
-### ---
-
-### **3.3\. Notas de Diseño**
+### 3.3. Notas de Diseño
 
 * **Normalización:** Se separaron los **Hitos** y los **Datos de Contexto** en tablas independientes para permitir que una sola obra tenga múltiples premios o múltiples datos educativos sin redundancia.  
 * **MVP Focus:** Se omitieron atributos de auditoría (fechas de creación) para mantener el modelo enfocado puramente en la lógica de navegación y filtrado por tiempo/mood.  
 * **Integración:** La entidad PLATAFORMA\_ORIGEN incluye el campo permite\_iframe para decidir si se usa el "Smart Embedding" o se realiza un "Deep Linking" a la app externa.
 
-## ---
-
-## **3.4 Modelo de Entidades: arteflujo (MVP)**
+### 3.4. Modelo de Entidades: arteflujo (MVP)
 
 El siguiente modelo define la estructura de datos necesaria para soportar la curaduría premium, el sistema de acceso por colores y la experiencia de descubrimiento por tiempo y "mood".
 
-## **3.4.1 Entidades de Contenido (Núcleo Artístico)**
+#### 3.4.1. Entidades de Contenido (Núcleo Artístico)
 
 Estas entidades gestionan la información de las piezas y su clasificación cultural.
 
@@ -498,9 +478,7 @@ Estas entidades gestionan la información de las piezas y su clasificación cult
 * **HITO:** Almacena los reconocimientos de la obra, como premios Oscar o menciones en festivales como Cannes o la Berlinale.  
 * **DATO\_CONTEXTO:** Información para el **Modo Contexto** que aparece como pop-up durante la reproducción.
 
-## ---
-
-## **3.4.2 Entidades de Acceso e Integración**
+#### 3.4.2. Entidades de Acceso e Integración
 
 Gestionan la transparencia sobre dónde y cómo ver el contenido.
 
@@ -510,16 +488,12 @@ Gestionan la transparencia sobre dónde y cómo ver el contenido.
   * 🟡 **Suscripción:** Requiere cuenta externa.  
   * 🔵 **Premium/VOD:** Pago por evento.
 
-## ---
-
-## **3.4.3 Entidades de Usuario y Personalización**
+#### 3.4.3. Entidades de Usuario y Personalización
 
 * **USUARIO:** Perfil básico del espectador (Curioso Cultural, Melómano o Cinefilia).  
 * **LISTA\_DESEOS (Watchlist):** Permite al usuario centralizar obras de diferentes plataformas en una sola lista personalizada.
 
-## ---
-
-**Resumen de Atributos (Diccionario MVP)**
+#### Resumen de Atributos (Diccionario MVP)
 
 | Entidad | Atributos Clave | Relación Principal |
 | :---- | :---- | :---- |
@@ -530,11 +504,11 @@ Gestionan la transparencia sobre dónde y cómo ver el contenido.
 | **Lista Deseos** | usuario\_id, obra\_id | Vincula **Usuarios** con **Obras**. |
 
 
-## **🔌 4. Especificación API Arteflujo OpenAPI 3.0**
+## 🔌 4. Especificación API Arteflujo OpenAPI 3.0
 
 A continuación presento la especificación de la API para **arteflujo** en formato **OpenAPI 3.0**. Este diseño integra el modelo de datos núcleo (Obras, Hitos, Contexto), la lógica de acceso por colores y los requerimientos de seguridad y arquitectura definidos previamente.
 
-YAML
+```yaml
 
 openapi: 3.0.3  
 info:  
@@ -705,7 +679,9 @@ paths:
         '201':  
           description: Obra agregada exitosamente
 
-### **Puntos clave de esta especificación:**
+```
+
+### Puntos clave de esta especificación
 
 * **Smart Embedding:** El esquema Obra incluye el campo permite\_iframe para que el frontend decida si renderiza un modal o redirige a la app externa.  
 * **Filtros de Negocio:** Se han mapeado los parámetros de consulta para el **Dial de Tiempo** (duracion\_max) y el selector de **Mood** (mood).  
@@ -714,11 +690,11 @@ paths:
 
 ---
 
-## **👥 5. Historias de usuario \- arteFlujo**
+## 👥 5. Historias de usuario — arteFlujo
 
-## **User Personas**
+### User Personas
 
-### **Persona 1: El Curioso Cultural**
+#### Persona 1: El Curioso Cultural
 
 * **Descripción**: Persona con interés amplio en las artes y la cultura. Busca descubrir cosas nuevas en sus ratos libres sin saber exactamente qué quiere encontrar.  
 * **Motivación principal**: Aprender y sorprenderse con contenido que no encontraría en plataformas comerciales.  
@@ -727,7 +703,7 @@ paths:
 
 ---
 
-### **Persona 2: El Melómano y Amante del Arte**
+#### Persona 2: El Melómano y Amante del Arte
 
 * **Descripción**: Usuario con conocimiento técnico en música o artes escénicas. Valora la interpretación y la calidad sobre la popularidad.  
 * **Motivación principal**: Encontrar fragmentos magistrales, versiones instrumentales únicas o la "pieza de oro" de un concierto sin tener que ver el evento completo.  
@@ -736,7 +712,7 @@ paths:
 
 ---
 
-### **Persona 3: El Cinéfilo (Cinephile)**
+#### Persona 3: El Cinéfilo (Cinephile)
 
 * **Descripción**: Espectador apasionado del cine de autor, festivales y cine independiente. Rechaza activamente el cine comercial de Hollywood.  
 * **Motivación principal**: Acceder a películas de Cannes, Berlinale, cine independiente y experimental desde un solo lugar curado.  
@@ -745,7 +721,7 @@ paths:
 
 ---
 
-## **📋 Requisitos Funcionales**
+## 📋 Requisitos Funcionales
 
 | ID | Requisito |
 | :---- | :---- |
@@ -764,7 +740,7 @@ paths:
 
 ---
 
-## **📐 Requisitos No Funcionales**
+## 📐 Requisitos No Funcionales
 
 | ID | Requisito |
 | :---- | :---- |
@@ -776,11 +752,9 @@ paths:
 | RNF-006 | La plataforma DEBE soportar auto-escalado ante eventos especiales (estrenos, premiaciones) |
 | RNF-007 | Los metadatos de terceros DEBEN actualizarse con un máximo de 24 horas de antigüedad  |
 
-## **\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+## Historias de usuario — arteFlujo
 
-## **Historias de usuario \- arteFlujo**
-
-## **User Story 1 — Descubrimiento por Tiempo y Mood \+ Watchlist**
+### User Story 1 — Descubrimiento por Tiempo y Mood + Watchlist
 
 **Persona**: El Curioso Cultural **Prioridad**: ⭐ Must-Have (P1)
 
@@ -797,7 +771,7 @@ paths:
 
 ---
 
-## **User Story 2 — Exploración de Fragmentos Musicales \+ Reproducción**
+### User Story 2 — Exploración de Fragmentos Musicales + Reproducción
 
 **Persona**: El Melómano y Amante del Arte **Prioridad**: 🔶 Should-Have (P2)
 
@@ -814,7 +788,7 @@ paths:
 
 ---
 
-## **User Story 3 — Búsqueda por Festival/Hito \+ Acceso Transparente**
+### User Story 3 — Búsqueda por Festival/Hito + Acceso Transparente
 
 **Persona**: El Cinéfilo (Cinephile) **Prioridad**: 🔷 Should-Have (P2)
 
@@ -831,7 +805,7 @@ paths:
 
 ---
 
-## **Resumen**
+### Resumen
 
 | \# | Persona | User Story | Prioridad |
 | :---- | :---- | :---- | :---- |
@@ -841,16 +815,17 @@ paths:
 
 ---
 
-## **🎫 6. Tickets de Trabajo**
-# **Work Tickets — US-1: El Curioso Cultural**
+## 🎫 6. Tickets de Trabajo
 
-# **User Story de referencia**
+### Work Tickets — US-1: El Curioso Cultural
+
+#### User Story de referencia
 
 Como **Curioso Cultural**, quiero filtrar contenido por duración y estado de ánimo para descubrir cortos, conciertos o películas de calidad que se ajusten al tiempo libre que tengo en este momento.
 
-## **⚙️ Backend**
+#### ⚙️ Backend
 
-### **ARF-003 — Endpoint GET /obras con filtros duracion\_max y mood**
+##### ARF-003 — Endpoint GET /obras con filtros duracion_max and mood
 
 | Campo | Valor |
 | :---- | :---- |
@@ -875,9 +850,9 @@ Como **Curioso Cultural**, quiero filtrar contenido por duración y estado de á
 * Crear DTO de respuesta ObraResponseDto con todos los campos necesarios  
 2. Agregar validación de parámetros con class-validator
 
-## **🎨 Frontend**
+#### 🎨 Frontend
 
-### **ARF-006 — Componente DialDeTiempo (slider de filtrado)**
+##### ARF-006 — Componente DialDeTiempo (slider de filtrado)
 
 | Campo | Valor |
 | :---- | :---- |
@@ -904,7 +879,7 @@ Como **Curioso Cultural**, quiero filtrar contenido por duración y estado de á
 
 ---
 
-### **ARF-007 — Componente MoodSelector (selector de estado de ánimo)**
+##### ARF-007 — Componente MoodSelector (selector de estado de ánimo)
 
 | Campo | Valor |
 | :---- | :---- |
@@ -929,7 +904,7 @@ Como **Curioso Cultural**, quiero filtrar contenido por duración y estado de á
 
 ---
 
-### **ARF-008 — Componente ObraCard (tarjeta de resultado)**
+##### ARF-008 — Componente ObraCard (tarjeta de resultado)
 
 | Campo | Valor |
 | :---- | :---- |
@@ -955,7 +930,7 @@ Como **Curioso Cultural**, quiero filtrar contenido por duración y estado de á
 
 ---
 
-### **ARF-010 — Página principal con resultados y botón "Sorpréndeme"**
+##### ARF-010 — Página principal con resultados y botón "Sorpréndeme"
 
 | Campo | Valor |
 | :---- | :---- |
@@ -982,21 +957,13 @@ Como **Curioso Cultural**, quiero filtrar contenido por duración y estado de á
 
 ---
 
-# 
+### Work Tickets — US-2: El Melómano y Amante del Arte
 
-# **User Story 2 \+ Work Tickets — El Melómano y Amante del Arte**
+#### User Story de referencia
 
-## **User Story 2 — Exploración de Fragmentos Musicales \+ Reproducción**
+#### 🗃️ Base de Datos
 
-**Persona**: El Melómano y Amante del Arte
-
-**Historia**:
-
-Como Melómano, quiero explorar fragmentos musicales curados por género y tipo de presentación para encontrar la "pieza de oro" de un concierto sin tener que ver el evento completo.
-
-## **🗃️ Base de Datos**
-
-### **ARF-013 — Seed: catálogo de conciertos y fragmentos musicales**
+##### ARF-013 — Seed: catálogo de conciertos y fragmentos musicales
 
 | Campo | Valor |
 | :---- | :---- |
@@ -1016,19 +983,15 @@ Como Melómano, quiero explorar fragmentos musicales curados por género y tipo 
 
 ---
 
-# **User Story 3 \+ Work Tickets — El Cinéfilo**
+### Work Tickets — US-3: El Cinéfilo
 
-## **User Story 3 — Búsqueda por Festival/Hito \+ Acceso Transparente**
-
-**Persona**: El Cinéfilo (Cinephile)
-
-**Historia**:
+#### User Story de referencia
 
 Como Cinéfilo, quiero buscar películas de festivales reconocidos y ver claramente si necesito suscripción o si son gratuitas, para decidir qué ver sin contratiempos de acceso.
 
-## **🗃️ Base de Datos**
+#### 🗃️ Base de Datos
 
-### **ARF-020 — Seed: catálogo de cine de festivales**
+##### ARF-020 — Seed: catálogo de cine de festivales
 
 | Campo | Valor |
 | :---- | :---- |
@@ -1036,27 +999,23 @@ Como Cinéfilo, quiero buscar películas de festivales reconocidos y ver clarame
 | **Estimación** | **1.5h** |
 | **Dependencias** | **ARF-012** |
 
-## **Descripción: Poblar la base de datos con un catálogo representativo del eje "The Cinema" que incluya películas con Hitos de festivales internacionales reconocidos.**
+#### Descripción
+Poblar la base de datos con un catálogo representativo del eje "The Cinema" que incluya películas con Hitos de festivales internacionales reconocidos.
 
-## **Criterios de Aceptación:**
+#### Criterios de Aceptación:
 
-* ## **\[ \] Mínimo 10 obras del eje** EJE\_VERTICAL \= 'Cinema'
-
-* ## **\[ \] Festivales representados: Óscar, Cannes, Berlinale, Sundance, BAFTA (mínimo 3\)**
-
-* ## **\[ \] Obras con los tres tipos de acceso: Abierto (🟢), Suscripción (🟡), VOD (🔵)**
-
-* ## **\[ \] Plataformas: MUBI, Mubi, YouTube, Vimeo — con** permite\_iframe **correcto por plataforma**
-
-* ## **\[ \] Cada película tiene** valor\_cultural **(máx. 280 caracteres) y al menos 1 Hito con** anio\_hito
-
-* ## **\[ \] Al menos 3 películas con múltiples Hitos para validar la visualización de "+N más"**
+* [ ] Mínimo 10 obras del eje EJE_VERTICAL = 'Cinema'
+* [ ] Festivales representados: Óscar, Cannes, Berlinale, Sundance, BAFTA (mínimo 3)
+* [ ] Obras con los tres tipos de acceso: Abierto (🟢), Suscripción (🟡), VOD (🔵)
+* [ ] Plataformas: MUBI, Mubi, YouTube, Vimeo — con permite_iframe correcto por plataforma
+* [ ] Cada película tiene valor_cultural (máx. 280 caracteres) y al menos 1 Hito con anio_hito
+* [ ] Al menos 3 películas con múltiples Hitos para validar la visualización de "+N más"
 
 ---
 
-## **🎨 Frontend**
+#### 🎨 Frontend
 
-### **ARF-025 — Página The Cinema con buscador por Hito/festival**
+##### ARF-025 — Página The Cinema con buscador por Hito/festival
 
 | Campo | Valor |
 | :---- | :---- |
@@ -1064,41 +1023,32 @@ Como Cinéfilo, quiero buscar películas de festivales reconocidos y ver clarame
 | **Estimación** | **2.5h** |
 | **Dependencias** | **ARF-022, ARF-008** |
 
-## **Descripción: Crear la página del eje "The Cinema" con su buscador especializado por nombre de hito o festival, permitiendo búsquedas como "Cannes", "Oscar" o "Berlinale".**
+#### Descripción
+Crear la página del eje "The Cinema" con su buscador especializado por nombre de hito o festival, permitiendo búsquedas como "Cannes", "Oscar" o "Berlinale".
 
-## **Criterios de Aceptación:**
+#### Criterios de Aceptación:
 
-* ## **\[ \] Página accesible en** /cinema **con título "The Cinema"**
+* [ ] Página accesible en /cinema con título "The Cinema"
+* [ ] Campo de búsqueda con placeholder "Buscar por festival, premio o director..."
+* [ ] La búsqueda se ejecuta al escribir (debounce 400ms) o al presionar Enter
+* [ ] Los resultados usan ObraCard mostrando claramente el indicador de acceso (🟢🟡🔵)
+* [ ] El término de búsqueda se refleja en la URL: /cinema?hito=Oscar
+* [ ] Etiquetas de búsquedas sugeridas: "Oscar", "Cannes", "Berlinale", "Sundance" como chips clickeables
+* [ ] Estado vacío con mensaje: "No encontramos películas con ese criterio. Prueba con 'Cannes' o 'Berlinale'."
 
-* ## **\[ \] Campo de búsqueda con placeholder "Buscar por festival, premio o director..."**
+#### Tareas Técnicas:
 
-* ## **\[ \] La búsqueda se ejecuta al escribir (debounce 400ms) o al presionar Enter**
-
-* ## **\[ \] Los resultados usan** ObraCard **mostrando claramente el indicador de acceso (🟢🟡🔵)**
-
-* ## **\[ \] El término de búsqueda se refleja en la URL:** /cinema?hito=Oscar
-
-* ## **\[ \] Etiquetas de búsquedas sugeridas: "Oscar", "Cannes", "Berlinale", "Sundance" como chips clickeables**
-
-* ## **\[ \] Estado vacío con mensaje: "No encontramos películas con ese criterio. Prueba con 'Cannes' o 'Berlinale'."**
-
-## **Tareas Técnicas:**
-
-1. ## **Crear** pages/cinema/index.tsx **(Next.js)**
-
-2. ## **Crear** components/HitoBuscador/HitoBuscador.tsx **con debounce**
-
-3. ## **Crear** components/SugerenciasHito/SugerenciasHito.tsx **con chips de búsqueda predefinidos**
-
-4. ## **Extender** hooks/useObrasFiltradas.ts **con el parámetro** hito
+1. Crear pages/cinema/index.tsx (Next.js)
+2. Crear components/HitoBuscador/HitoBuscador.tsx con debounce
+3. Crear components/SugerenciasHito/SugerenciasHito.tsx con chips de búsqueda predefinidos
+4. Extender hooks/useObrasFiltradas.ts con el parámetro hito
 
 ---
 
 ## 7. Pull Requests
 
-> Documenta 3 de las Pull Requests realizadas durante la ejecución del proyecto
-
 **Pull Request 1**
+
 
 **Pull Request 2**
 

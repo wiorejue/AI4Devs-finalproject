@@ -47,7 +47,7 @@ Se quiere presentar al usuario contenido gratuito, acceder de forma integrada a 
   * **Transparencia de Acceso:** Informar claramente al usuario si el contenido es gratuito, bajo suscripción (Netflix, MUBI, Qello) o de pago por evento (VOD).  
   * **Experiencia Fluida:** Reducir la fricción mediante la reproducción embebida siempre que las licencias y APIs lo permitan.
 
-### **12\. Pilares del Contenido**
+### **1.2. Pilares del Contenido**
 
 La oferta se divide en tres ejes verticales que definen la identidad de la aplicación:
 
@@ -57,14 +57,14 @@ La oferta se divide en tres ejes verticales que definen la identidad de la aplic
 * **Escenarios (The Stage):** Un espacio dedicado a la música y las artes escénicas. No solo conciertos completos, sino **curaduría de fragmentos magistrales** (la "pieza de oro" de una presentación). Abarca desde la potencia de una orquesta sinfónica hasta la intimidad de un club de Jazz o un bolero.  
 * **Cine de Autor (The Cinema):** Un catálogo alejado del *blockbuster*. Se centra en el cine de festivales (Cannes, Berlinale, etc.), cine independiente y obras que alimentan la **"Cinefilia Pura"**, donde la visión del director es el eje central.
 
-### **1.3\. Perfil del Usuario Objetivo**
+### **1.3. Perfil del Usuario Objetivo**
 
 * **El Curioso Cultural:** Personas que buscan aprender o descubrir algo nuevo en sus tiempos libres.  
 * **El Melómano y Amante del Arte:** Usuarios que valoran la interpretación técnica, desde un solo de violín hasta una puesta en escena teatral.  
 * **Cinefilitas:** Espectadores que huyen de los clichés de Hollywood y buscan profundidad temática.
 
 
-### **1.4\. Características Principales**
+### **1.4. Características Principales**
 
 * **Agregación Inteligente:** La plataforma no solo aloja, sino que indexa contenido de terceros (YouTube, Vimeo, plataformas de nicho).  
 * **Etiquetado de "Estatus de Acceso":** Un sistema de iconos visuales que indica:  
@@ -73,7 +73,7 @@ La oferta se divide en tres ejes verticales que definen la identidad de la aplic
   * 🔵 **Premium/VOD:** Pago único por alquiler o compra.  
 * **Reproductor Unificado:** Capacidad de embeber marcos de reproducción para que el usuario no abandone la web (sujeto a disponibilidad técnica del origen).
 
-### **1.5\. Funcionalidades Detalladas**
+### **1.5. Funcionalidades Detalladas**
 
 #### **A. Módulo de Usuario y Navegación**
 
@@ -95,7 +95,7 @@ Cada miniatura de video debe mostrar:
 * Smart Embedding: Si el video permite iframe (como YouTube o Vimeo), se reproduce en una ventana modal dentro de Artesir.  
 * **Deep Linking:** Si el contenido es de una plataforma cerrada (como Netflix o Apple TV), el botón de "Play" abre directamente la aplicación o la web externa en el minuto exacto.
 
-### **1.6\. Estructura de Secciones (Matriz de Contenido)**
+### **1.6. Estructura de Secciones (Matriz de Contenido)**
 
 | Sección | Funcionalidad Específica | Subcategorías / Géneros | Atributo Diferencial | Ejemplo de Contenido |
 | :---- | :---- | :---- | :---- | :---- |
@@ -103,111 +103,115 @@ Cada miniatura de video debe mostrar:
 | **Conciertos** | Selector de "Solo Fragmentos" o "Concierto Completo". | Sinfónico, Ópera, Teatro, Homenajes, Jazz, Salsa, Rock, Pop. | Versiones instrumentales y "**highlights**". | El solo de trompeta de un concierto de Jazz. |
 | **Cine** | Ficha técnica con enfoque en el estilo visual. | Cine de Autor, Independiente, Cine Cultural. | Narrativas no convencionales. | Películas de cine independiente o experimental. |
 
-### **1.7\. Reglas de Negocio**
+### **1.7. Reglas de Negocio**
 
 * **Prioridad de Visualización:** El contenido gratuito y embebible tendrá prioridad en los algoritmos de recomendación para mejorar la retención del usuario en la web.  
 * **Afiliación:** Enlaces a plataformas de pago podrán incluir códigos de afiliado para monetizar la plataforma.
 
 
-### **1.7.🔄 Diagramas de secuencia**
+### **1.8.🔄 Diagramas de secuencia**
 Estos son los diagramas de secuencia detallados para las tres operaciones críticas de **arteflujo**. Estos diagramas ilustran la interacción entre los microservicios, la validación de seguridad y la integración con fuentes de contenido externas.
 
-### ---
-
-**1\. Búsqueda Curada (El Dial de Tiempo)**
+**1.8.1. Búsqueda Curada (El Dial de Tiempo)**
 
 Este flujo muestra cómo el sistema filtra contenido basado en la duración y el estado de ánimo, priorizando la velocidad de respuesta mediante el uso de la base de datos de metadatos indexados.
 
-sequenceDiagram  
-    autonumber  
-    actor Usuario  
-    participant FE as Frontend (Next.js)  
-    participant AGW as API Gateway  
-    participant CS as Servicio de Curaduría  
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Usuario
+    participant FE as Frontend (Next.js)
+    participant AGW as API Gateway
+    participant CS as Servicio de Curaduría
     participant DB as PostgreSQL (Metadata)
 
-    Usuario-\>\>FE: Ajusta Dial de Tiempo (ej. 15 min) y Mood  
-    FE-\>\>AGW: GET /obras?duracion\_max=15\&mood=Melancolico  
-    AGW-\>\>CS: Consultar catálogo filtrado  
-    CS-\>\>DB: SELECT \* FROM OBRA WHERE duracion\_min \<= 15 AND vibe\_mood \= 'Melancolico'  
-    DB--\>\>CS: Lista de Obras \+ Hitos  
-    CS--\>\>AGW: JSON (Lista de Obras con Estatus de Acceso 🟢🟡🔵)  
-    AGW--\>\>FE: Renderizar Cards de resultados  
-    FE--\>\>Usuario: Muestra galería de contenidos filtrados
+    Usuario->>FE: Ajusta Dial de Tiempo (ej. 15 min) y Mood
+    FE->>AGW: GET /obras?duracion_max=15&mood=Melancolico
+    AGW->>CS: Consultar catálogo filtrado
+    CS->>DB: SELECT * FROM OBRA WHERE duracion_min <= 15 AND vibe_mood = 'Melancolico'
+    DB-->>CS: Lista de Obras + Hitos
+    CS-->>AGW: JSON (Lista de Obras con Estatus de Acceso 🟢🟡🔵)
+    AGW-->>FE: Renderizar Cards de resultados
+    FE-->>Usuario: Muestra galería de contenidos filtrados
+```
 
-### ---
+---
 
-**2\. Reproducción Inteligente y Modo Contexto**
+**1.8.2. Reproducción Inteligente y Modo Contexto**
 
 Este es el flujo más complejo, donde el sistema decide la técnica de visualización y prepara la capa de información educativa sincronizada.
 
-sequenceDiagram  
-    autonumber  
-    actor Usuario  
-    participant FE as Frontend (Next.js)  
-    participant AGW as API Gateway  
-    participant CS as Servicio de Curaduría  
-    participant DB as PostgreSQL (Metadata)  
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Usuario
+    participant FE as Frontend (Next.js)
+    participant AGW as API Gateway
+    participant CS as Servicio de Curaduría
+    participant DB as PostgreSQL (Metadata)
     participant EXT as APIs Externas (YouTube/Vimeo)
 
-    Usuario-\>\>FE: Selecciona Obra para reproducir  
-      
-    par Obtener Metadatos de Reproducción  
-        FE-\>\>AGW: GET /obras/{id}  
-        AGW-\>\>CS: Validar permisos y plataforma  
-        CS-\>\>DB: Consultar permite\_iframe y url\_origen  
-        DB--\>\>CS: Datos de plataforma  
-        CS--\>\>FE: metadata (permite\_iframe: true/false)  
-    and Obtener Datos de Contexto  
-        FE-\>\>AGW: GET /obras/{id}/contexto  
-        AGW-\>\>CS: Solicitar hitos y curiosidades  
-        CS-\>\>DB: SELECT \* FROM DATO\_CONTEXTO WHERE id\_obra \= {id}  
-        DB--\>\>CS: Lista de marcas de tiempo y textos  
-        CS--\>\>FE: JSON (Array de Pop-ups sincronizados)  
+    Usuario->>FE: Selecciona Obra para reproducir
+
+    par Obtener Metadatos de Reproducción
+        FE->>AGW: GET /obras/{id}
+        AGW->>CS: Validar permisos y plataforma
+        CS->>DB: Consultar permite_iframe y url_origen
+        DB-->>CS: Datos de plataforma
+        CS-->>FE: metadata (permite_iframe: true/false)
+    and Obtener Datos de Contexto
+        FE->>AGW: GET /obras/{id}/contexto
+        AGW->>CS: Solicitar hitos y curiosidades
+        CS->>DB: SELECT * FROM DATO_CONTEXTO WHERE id_obra = {id}
+        DB-->>CS: Lista de marcas de tiempo y textos
+        CS-->>FE: JSON (Array de Pop-ups sincronizados)
     end
 
-    alt permite\_iframe \== true  
-        FE-\>\>EXT: Cargar video en Smart Embedding (Iframe)  
-    else permite\_iframe \== false  
-        FE-\>\>Usuario: Mostrar botón "Ver en plataforma origen" (Deep Linking)  
+    alt permite_iframe == true
+        FE->>EXT: Cargar video en Smart Embedding (Iframe)
+    else permite_iframe == false
+        FE->>Usuario: Mostrar botón "Ver en plataforma origen" (Deep Linking)
     end
 
-    FE-\>\>Usuario: Inicia reproducción \+ Pop-ups de Modo Contexto en T+n
+    FE->>Usuario: Inicia reproducción + Pop-ups de Modo Contexto en T+n
+```
 
-### ---
+---
 
-**3\. Persistencia en Watchlist**
+**1.8.3. Persistencia en Watchlist**
 
 Este flujo valida la seguridad del sistema mediante la verificación de tokens antes de realizar operaciones de escritura en el perfil del usuario.
 
-sequenceDiagram  
-    autonumber  
-    actor Usuario  
-    participant FE as Frontend (Next.js)  
-    participant AGW as API Gateway  
-    participant AS as Servicio de Autenticación (JWT)  
-    participant US as Servicio de Usuario  
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Usuario
+    participant FE as Frontend (Next.js)
+    participant AGW as API Gateway
+    participant AS as Servicio de Autenticación (JWT)
+    participant US as Servicio de Usuario
     participant DB as PostgreSQL (Watchlist)
 
-    Usuario-\>\>FE: Haz clic en "Guardar en mi lista"  
-    FE-\>\>AGW: POST /watchlist {id\_obra} (Auth: Bearer Token)  
-      
-    Note over AGW,AS: Validación de Identidad  
-    AGW-\>\>AS: Validar JWT  
-    alt Token Inválido  
-        AS--\>\>AGW: 401 Unauthorized  
-        AGW--\>\>FE: Redirigir a Login  
-    else Token Válido  
-        AS--\>\>AGW: OK (user\_id: 123\)  
-        AGW-\>\>US: saveToWatchlist(user\_id=123, id\_obra=456)  
-        US-\>\>DB: INSERT INTO LISTA\_DESEOS (user\_id, id\_obra)  
-        DB--\>\>US: Success  
-        US--\>\>AGW: 201 Created  
-        AGW--\>\>FE: Confirmación visual de guardado  
-    end  
-    FE--\>\>Usuario: Icono de "Guardado" actualizado
+    Usuario->>FE: Haz clic en "Guardar en mi lista"
+    FE->>AGW: POST /watchlist {id_obra} (Auth: Bearer Token)
 
-### ---
+    Note over AGW,AS: Validación de Identidad
+    AGW->>AS: Validar JWT
+    alt Token Inválido
+        AS-->>AGW: 401 Unauthorized
+        AGW-->>FE: Redirigir a Login
+    else Token Válido
+        AS-->>AGW: OK (user_id: 123)
+        AGW->>US: saveToWatchlist(user_id=123, id_obra=456)
+        US->>DB: INSERT INTO LISTA_DESEOS (user_id, id_obra)
+        DB-->>US: Success
+        US-->>AGW: 201 Created
+        AGW-->>FE: Confirmación visual de guardado
+    end
+    FE-->>Usuario: Icono de "Guardado" actualizado
+```
+
+---
 
 **Puntos de Decisión Críticos en los Diagramas:**
 
@@ -253,65 +257,65 @@ La arquitectura de **arteflujo** está diseñada bajo un patrón de **Microservi
 
 Siguiendo el stack tecnológico recomendado (**Next.js** para el frontend y **NestJS/Node.js** para el backend), esta es la organización de carpetas sugerida:
 
-Plaintext
-
-arteflujo-project/  
-├── frontend/                 \# Proyecto Next.js (React)  
-│   ├── public/               \# Activos estáticos (logos, iconos de acceso 🟢🟡🔵)  
-│   ├── src/  
-│   │   ├── components/       \# UI: Dial de Tiempo, Card Design, Reproductor Modal  
-│   │   ├── hooks/            \# Lógica compartida y estado global  
-│   │   ├── pages/            \# Rutas: Home, Cinema, Stage, Short List, Watchlist  
-│   │   ├── services/         \# Clientes para consumir el API Gateway interno  
-│   │   ├── styles/           \# Temas y estilos CSS/Tailwind  
-│   │   └── utils/            \# Formateadores de tiempo y lógica de filtrado  
-│   ├── next.config.js  
-│   └── package.json  
-│  
-├── backend/                  \# Proyecto NestJS (Node.js)  
-│   ├── src/  
-│   │   ├── modules/          \# Microservicios modulares  
-│   │   │   ├── aggregator/   \# Lógica de indexación y Smart Embedding  
-│   │   │   ├── auth/         \# Gestión de sesiones y JWT  
-│   │   │   ├── curated/      \# Gestión de Obras, Hitos y Moods  
-│   │   │   └── user/         \# Gestión de perfiles y Listas de Deseos  
-│   │   ├── common/           \# Filtros de excepción, interceptores y DTOs  
-│   │   ├── config/           \# Variables de entorno y llaves de APIs externas  
-│   │   └── database/         \# Migraciones y modelos de PostgreSQL  
-│   ├── test/                 \# Pruebas unitarias y de integración  
-│   ├── nest-cli.json  
-│   └── package.json  
-│  
-└── README.md                 \# Documentación técnica general
+```plaintext
+arteflujo-project/
+├── frontend/                 # Proyecto Next.js (React)
+│   ├── public/               # Activos estáticos (logos, iconos de acceso 🟢🟡🔵)
+│   ├── src/
+│   │   ├── components/       # UI: Dial de Tiempo, Card Design, Reproductor Modal
+│   │   ├── hooks/            # Lógica compartida y estado global
+│   │   ├── pages/            # Rutas: Home, Cinema, Stage, Short List, Watchlist
+│   │   ├── services/         # Clientes para consumir el API Gateway interno
+│   │   ├── styles/           # Temas y estilos CSS/Tailwind
+│   │   └── utils/            # Formateadores de tiempo y lógica de filtrado
+│   ├── next.config.js
+│   └── package.json
+│
+├── backend/                  # Proyecto NestJS (Node.js)
+│   ├── src/
+│   │   ├── modules/          # Microservicios modulares
+│   │   │   ├── aggregator/   # Lógica de indexación y Smart Embedding
+│   │   │   ├── auth/         # Gestión de sesiones y JWT
+│   │   │   ├── curated/      # Gestión de Obras, Hitos y Moods
+│   │   │   └── user/         # Gestión de perfiles y Listas de Deseos
+│   │   ├── common/           # Filtros de excepción, interceptores y DTOs
+│   │   ├── config/           # Variables de entorno y llaves de APIs externas
+│   │   └── database/         # Migraciones y modelos de PostgreSQL
+│   ├── test/                 # Pruebas unitarias y de integración
+│   ├── nest-cli.json
+│   └── package.json
+│
+└── README.md                 # Documentación técnica general
+```
 
 Esta estructura separa claramente las responsabilidades, permitiendo que el **Motor de Agregación** en el backend evolucione independientemente de la interfaz de usuario en el frontend.
 
 
-### **4\. Estrategia de Pruebas: Calidad y Resiliencia**
+### **2.4. Estrategia de Pruebas: Calidad y Resiliencia**
 
 Para asegurar que la experiencia en **arteflujo** sea verdaderamente "premium" y libre de fricciones, la estrategia de pruebas se ha diseñado siguiendo el modelo de la pirámide de automatización, con un enfoque especial en la resiliencia de las integraciones externas.
 
 #### 
 
-#### **1\. Pruebas Unitarias (Capa de Lógica)**
+#### **2.4.1. Pruebas Unitarias (Capa de Lógica)**
 
 * **Backend:** Se validará de forma aislada la lógica de los servicios de curaduría, asegurando que el cálculo de duraciones y la asignación de "moods" sea correcto según el diccionario de datos.  
 * **Frontend:** Pruebas de componentes individuales en **React/Next.js**, como el funcionamiento mecánico del "Dial de Tiempo" y el renderizado correcto de los iconos de acceso (🟢, 🟡, 🔵).  
 * **Mocking de APIs:** Se utilizarán herramientas para simular las respuestas de YouTube, MUBI y Vimeo, evitando consumir cuotas reales durante el desarrollo y asegurando que el sistema maneje correctamente metadatos incompletos.
 
-#### **2\. Pruebas de Integración (Capa de Datos y APIs)**
+#### **2.4.2. Pruebas de Integración (Capa de Datos y APIs)**
 
 * **Consistencia de Metadatos:** Verificación de que la relación entre la entidad **OBRA** y sus **HITOS** (premios) o **DATOS\_CONTEXTO** se mantenga íntegra en PostgreSQL.  
 * **Validación de Smart Embedding:** Pruebas automatizadas para confirmar que los *iframes* de terceros se cargan correctamente y que el sistema detecta si un video permite ser embebido o requiere *Deep Linking*.  
 * **Circuit Breaker Testing:** Simulación de caídas en APIs externas para verificar que el backend responda con contenido alternativo o estados de "No disponible" sin degradar la plataforma completa.
 
-#### **3\. Pruebas de Extremo a Extremo (E2E \- Flujos de Usuario)**
+#### **2.4.3. Pruebas de Extremo a Extremo (E2E \- Flujos de Usuario)**
 
 * **Flujo de Descubrimiento:** Automatización del recorrido donde un usuario ajusta el filtro por tiempo, selecciona un "mood" y visualiza resultados coherentes.  
 * **Persistencia en Watchlist:** Validación de que el guardado de una obra desde diversas fuentes se refleje instantáneamente en el perfil del usuario.  
 * **Sincronización del Modo Contexto:** Pruebas de tiempo para asegurar que los pop-ups informativos aparezcan en la marca de tiempo exacta definida en la entidad **DATO\_CONTEXTO**.
 
-#### **2.4 Pruebas de Carga y Rendimiento**
+#### **2.4.3. Pruebas de Carga y Rendimiento**
 
 * **Ráfagas de Tráfico:** Simulación de usuarios concurrentes durante eventos especiales (como anuncios de cortos premiados) para validar el auto-escalado en **AWS Fargate**.  
 * **Latencia de Búsqueda:** Medición de los tiempos de respuesta del API Gateway y la eficiencia de la caché en **Redis** al consultar catálogos indexados.
@@ -342,15 +346,15 @@ Para gestionar las cuotas de APIs y la disponibilidad de fuentes externas:
 
 **🔐 2.6 Seguridad y Monetización**
 
-5. **Watchlists:** Las sesiones se gestionan mediante **JWT (JSON Web Tokens)** almacenados de forma segura.  
-6. **Afiliados:** Los enlaces a plataformas como MUBI o Netflix incluyen parámetros de rastreo inyectados dinámicamente por el Backend al generar el **Botón de Play**.  
-7. **Protección:** Implementación de **WAF (Web Application Firewall)** para mitigar ataques de scraping al catálogo curado.
+1. **Watchlists:** Las sesiones se gestionan mediante **JWT (JSON Web Tokens)** almacenados de forma segura.  
+2. **Afiliados:** Los enlaces a plataformas como MUBI o Netflix incluyen parámetros de rastreo inyectados dinámicamente por el Backend al generar el **Botón de Play**.  
+3. **Protección:** Implementación de **WAF (Web Application Firewall)** para mitigar ataques de scraping al catálogo curado.
 
 ### **Ampliación de la Capa de Seguridad**
 
 La estrategia de seguridad se divide en cuatro pilares fundamentales para garantizar la confianza del usuario y la protección de los activos digitales:
 
-#### **1\. Gestión de Identidades y Control de Acceso (IAM)**
+#### **2.6.1. Gestión de Identidades y Control de Acceso (IAM)**
 
 * **Autenticación Robusta:** Se implementará **JSON Web Tokens (JWT)** para la gestión de sesiones sin estado, permitiendo que los microservicios validen la identidad del usuario de forma independiente. Para el futuro, se contempla la integración de **OAuth2/OpenID Connect** (Google/Apple ID) para facilitar el registro de los "Curiosos Culturales".  
 * **Autorización Basada en Roles (RBAC):** Se definirán niveles de acceso específicos:  
@@ -358,19 +362,19 @@ La estrategia de seguridad se divide en cuatro pilares fundamentales para garant
   * **Curador/Admin:** Permisos para gestionar el catálogo, actualizar "Hitos" y moderar los "Datos de Contexto".  
 * **Seguridad en el API Gateway:** El Gateway actuará como el único punto de entrada, validando firmas de tokens y scopes antes de redirigir el tráfico a los microservicios internos.
 
-#### **2\. Protección de Datos y Privacidad**
+#### **2.6.2. Protección de Datos y Privacidad**
 
 * **Cifrado de Extremo a Extremo:** Toda la comunicación entre el cliente y el servidor, así como entre microservicios, se realizará mediante **TLS 1.3 (HTTPS)**.  
 * **Datos en Reposo:** La base de datos **PostgreSQL** contará con cifrado de disco (AES-256) para proteger la información de los perfiles y las listas de deseos.  
 * **Gestión de Secretos:** Las llaves de API de terceros (YouTube, Vimeo, MUBI) y las credenciales de base de datos nunca se almacenarán en el código fuente; se utilizarán servicios como **AWS Secrets Manager** o **HashiCorp Vault**.
 
-#### **3\. Seguridad en Integraciones y Monetización**
+#### **2.6.3. Seguridad en Integraciones y Monetización**
 
 * **Integridad de Enlaces de Afiliación:** Para evitar el fraude o la manipulación de enlaces de pago (VOD/Suscripción), el sistema generará y firmará dinámicamente los parámetros de afiliado en el backend justo antes de la redirección.  
 * **Validación de Origen (CORS):** Se configurarán políticas estrictas de *Cross-Origin Resource Sharing* para asegurar que solo el frontend oficial de **arteflujo** pueda consumir los recursos del API Gateway.  
 * **Sanitización de Contenido:** Debido a que la plataforma permite "Datos de Contexto" y descripciones culturales, se implementará una limpieza estricta contra ataques **XSS (Cross-Site Scripting)** en el renderizado de pop-ups y fichas técnicas.
 
-#### **4\. Resiliencia y Defensa Perimetral**
+#### **2.6.4. Resiliencia y Defensa Perimetral**
 
 * **Mitigación de DDoS y Scraping:** Se utilizará un **Web Application Firewall (WAF)** para bloquear patrones de tráfico maliciosos y proteger el catálogo curado de bots que intenten extraer la base de datos de "Hitos" y premios.  
 * **Rate Limiting:** Se aplicarán límites de tasa por IP y por usuario para prevenir abusos en el motor de búsqueda y proteger las cuotas de las APIs externas.  
@@ -391,36 +395,36 @@ La estrategia de seguridad se divide en cuatro pilares fundamentales para garant
 
 **📊 2.8 Diagrama del Sistema (Mermaid)**
 
-Fragmento de código
-
-graph TD  
-    subgraph Client\_Layer  
-        User((Usuario)) \--\> NextJS\[Next.js App / CDN\]  
+```mermaid
+graph TD
+    subgraph Client_Layer
+        User((Usuario)) --> NextJS[Next.js App / CDN]
     end
 
-    subgraph Edge\_Layer  
-        NextJS \--\> LB\[Load Balancer / Reverse Proxy\]  
+    subgraph Edge_Layer
+        NextJS --> LB[Load Balancer / Reverse Proxy]
     end
 
-    subgraph Service\_Layer  
-        LB \--\> Auth\[Auth Service \- JWT\]  
-        LB \--\> Gateway\[API Gateway\]  
-        Gateway \--\> CuratedSvc\[Servicio de Curaduría\]  
-        Gateway \--\> AggregatorSvc\[Motor de Agregación\]  
-        Gateway \--\> UserSvc\[Servicio de Usuario / Watchlist\]  
+    subgraph Service_Layer
+        LB --> Auth[Auth Service - JWT]
+        LB --> Gateway[API Gateway]
+        Gateway --> CuratedSvc[Servicio de Curaduría]
+        Gateway --> AggregatorSvc[Motor de Agregación]
+        Gateway --> UserSvc[Servicio de Usuario / Watchlist]
     end
 
-    subgraph Integration\_Layer  
-        AggregatorSvc \--\> Cache\[(Redis Cache)\]  
-        AggregatorSvc \--\> ThirdPartyAPI{APIs Externas}  
-        ThirdPartyAPI \--\> YT\[YouTube/Vimeo\]  
-        ThirdPartyAPI \--\> MUBI\[MUBI/Netflix\]  
+    subgraph Integration_Layer
+        AggregatorSvc --> Cache[(Redis Cache)]
+        AggregatorSvc --> ThirdPartyAPI{APIs Externas}
+        ThirdPartyAPI --> YT[YouTube/Vimeo]
+        ThirdPartyAPI --> MUBI[MUBI/Netflix]
     end
 
-    subgraph Data\_Layer  
-        CuratedSvc \--\> DB\[(PostgreSQL \- Metadata)\]  
-        UserSvc \--\> DB  
+    subgraph Data_Layer
+        CuratedSvc --> DB[(PostgreSQL - Metadata)]
+        UserSvc --> DB
     end
+```
 
 ## ---
 

@@ -1048,7 +1048,8 @@ Crear la página del eje "The Cinema" con su buscador especializado por nombre d
 ## 7. Pull Requests
 
 **Pull Request 1**
-
+Titulo: Entrega 1 – Documentación técnica
+Rama: feature-entrega1-WAOR
 
 **Pull Request 2**
 

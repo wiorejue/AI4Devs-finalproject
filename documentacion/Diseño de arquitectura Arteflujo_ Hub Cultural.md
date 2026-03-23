@@ -1,4 +1,4 @@
-Como **Senior Solutions Architect**, presento la propuesta técnica para **arteflujo**, un Hub de Curaduría Cultural diseñado para ofrecer una experiencia de descubrimiento artístico fluida y de alta especialidad.
+Como **Senior Solutions Architect**, presento la propuesta técnica para **latearte**, un Hub de Curaduría Cultural diseñado para ofrecer una experiencia de descubrimiento artístico fluida y de alta especialidad.
 
 ## ---
 
@@ -39,7 +39,7 @@ La arquitectura de **arteflujo** está diseñada bajo un patrón de **Microservi
 Siguiendo el stack tecnológico recomendado (**Next.js** para el frontend y **NestJS/Node.js** para el backend), esta es la organización de carpetas sugerida:
 
 ```text
-arteflujo-project/  
+latearte-project/  
 ├── frontend/                 # Proyecto Next.js (React)  
 │   ├── public/               # Activos estáticos (logos, iconos de acceso 🟢🟡🔵)  
 │   ├── src/  

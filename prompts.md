@@ -594,7 +594,31 @@ Paso 5 — Plan de Pruebas descargable
 ### 7. Pull Requests
 
 **Prompt 1:**
+Describir el proceso de pull requests para realizar el proyecto y registrarlos en el archivo readme.md
+
+
+---
+
+### 8. Inicialización y Planificación del Proyecto
+
+**Prompt 1:**
+Leer y contextualizar esta especificación de arquitectura (refiriéndose al documento "Diseño de arquitectura latearte").
 
 **Prompt 2:**
+Eres un experto en crear prompt para crear proyectos técnicos, con una arquitectura definida. Ayuda para crear un prompt para crear el proyecto con estas especificaciones técnicas definidas en el archivo, además se requiere:
+- que la base de datos opere con contenedores, y las definiciones de la base de datos se realicen con prisma
 
 **Prompt 3:**
+Actualizar el prompt con el cambio de nombre del proyecto a latearte que se hizo en el archivo. (Seguido de la solicitud: "Elaborar el plan de ejecución" para generar los documentos del plan de scaffolding inicial).
+
+**Prompt 4:**
+Registrar los prompts en adelante en archivo prompts, ejecutar el plan (iniciando el proceso guiado y automático de creación de infraestructura local con Docker Compose, setup de Backend con NestJS+Prisma y setup del Frontend con Next.js).
+
+**Prompt 5:**
+Continuar en este modo (comando dado para reasumir el scaffolding local cuando el proceso requirió intervenciones manuales por dependencias).
+
+**Prompt 6:**
+Registrar el reporte de ejecución del plan en la carpeta documentación. (Resultando en la creación del archivo "Reporte de Ejecución de Scaffolding latearte.md").
+
+**Prompt 7:**
+Guardar las tareas de inicialización del proyecto en carpeta documentación. (Resultando en la creación del archivo "Tareas de Inicialización latearte.md" con el seguimiento completo).

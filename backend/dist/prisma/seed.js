@@ -1,7 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+require("dotenv/config");
 const client_1 = require("@prisma/client");
-const prisma = new client_1.PrismaClient();
+const adapter_pg_1 = require("@prisma/adapter-pg");
+const connectionString = process.env.DATABASE_URL || 'postgresql://latearte_user:latearte_pass@localhost:5433/latearte_db?schema=public';
+const adapter = new adapter_pg_1.PrismaPg({ connectionString });
+const prisma = new client_1.PrismaClient({ adapter });
 async function main() {
     console.log('🌱 Iniciando Seeding del Catálogo Cultural...');
     const youtube = await prisma.plataformaOrigen.upsert({

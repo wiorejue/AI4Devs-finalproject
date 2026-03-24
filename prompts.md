@@ -699,3 +699,21 @@ Adicionar y mezclar esta definición a "sudolang.sudo", conservando las definici
 
 **Prompt 2 (Ajuste por ENUMs):**
 Modificar el plan de acción para conservar los ENUMs existentes en `schema.prisma` (EjeVertical, EstadoAcceso) en lugar de convertirlos a tablas auxiliares, manteniendo el resto de requerimientos del ticket ARF-001.
+
+**Prompt 3 (Inicio ARF-002):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-002-seed-datos-prueba.md") (Ejecutar el protocolo de SeniorArchitect para poblar el catálogo con 12 obras curadas).
+
+**Prompt 4 (Inicio ARF-003):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-003-endpoint-get-obras.md") (Implementar en NestJS el endpoint de búsqueda con filtros duracion_max y mood).
+
+**Prompt 5 (Inicio ARF-005):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-005-endpoint-auth.md") (Implementar en NestJS el sistema de autenticación JWT y registro de usuarios).
+
+**Prompt 6 (Inicio ARF-004):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-004-endpoint-post-watchlist.md") (Implementar en NestJS los endpoints para añadir y obtener obras en la lista de deseos).
+
+**Prompt 7 (Inicio ARF-011):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-011-variables-entorno.md") (Unificar y documentar variables de entorno del backend en .env.example).
+
+**Prompt 8 (Inicio ARF-006):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-006-componente-dial-tiempo.md") (Construir en React el componente interactivo Dial de Tiempo para filtrar por duración).

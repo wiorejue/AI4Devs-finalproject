@@ -96,6 +96,8 @@ model Obra {
   datos_contexto      DatoContexto[]
   watchlist_items      Watchlist[]
 
+  @@index([duracion_min])
+  @@index([vibe_mood])
   @@map("obras")
 }
 

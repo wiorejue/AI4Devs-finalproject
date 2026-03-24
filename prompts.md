@@ -676,3 +676,26 @@ En la carpeta "historias de usuario" con el archivo "work-tickets-US2-melomano.m
 
 **Prompt 3 (Organización de Tickets US3):**
 En la carpeta "historias de usuario" con el archivo "work-tickets-US3-cinefilo.md" crear una carpeta para los tickets de la US3, y luego para cada ticket crear un archivo independiente. (Resultando en la creación de "documentacion/historias de usuario/tickets-US3/" con archivos individuales ARF-020 al ARF-027).
+
+---
+
+## 12. Definición y Ejecución en SudoLang
+
+**Prompt 1 (Traducción SudoLang):**
+Traducir esta instrucción a sudolang: "Actúa como el Agente Senior asignado al ticket en 'tickets-US1/ARF-001-migracion-tabla-obra.md'. Analiza los criterios de aceptación y las reglas del proyecto en .rules/. Presenta primero tu Plan de Acción y, tras mi aprobación, procede con la implementación completa".
+
+**Prompt 2 (Ticket como Parámetro):**
+Ajustar la definición en SudoLang para que el ticket se pase como parámetro externo mediante el comando `/process("path/to/ticket.md")`.
+
+**Prompt 3 (Fusión SudoLang):**
+Adicionar y mezclar esta definición a "sudolang.sudo", conservando las definiciones existentes en el archivo.
+
+---
+
+## 13. Ejecución de Tickets — US1 (Curioso Cultural)
+
+**Prompt 1 (Inicio ARF-001):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-001-migracion-tabla-obra.md") (Ejecutar el protocolo de SeniorArchitect para el ticket de la tabla OBRA).
+
+**Prompt 2 (Ajuste por ENUMs):**
+Modificar el plan de acción para conservar los ENUMs existentes en `schema.prisma` (EjeVertical, EstadoAcceso) en lugar de convertirlos a tablas auxiliares, manteniendo el resto de requerimientos del ticket ARF-001.

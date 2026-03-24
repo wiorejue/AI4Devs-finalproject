@@ -622,3 +622,57 @@ Registrar el reporte de ejecución del plan en la carpeta documentación. (Resul
 
 **Prompt 7:**
 Guardar las tareas de inicialización del proyecto en carpeta documentación. (Resultando en la creación del archivo "Tareas de Inicialización latearte.md" con el seguimiento completo).
+
+---
+
+## 9. Generación de Reglas (Context-Aware)
+
+**Prompt 1 (Arquitectura):**
+Actúa como un Lead Solutions Architect. Analiza el archivo adjunto "Diseño de arquitectura Arteflujo_ Hub Cultural.md" y genera el archivo de reglas técnicas (estilo .cursorrules o .coderc) para estandarizar el desarrollo del proyecto latearte. Debes crear cuatro archivos independientes con las siguientes especificaciones estrictas: 1. .rules/architecture.md (Estructura Global).
+
+**Prompt 2 (Base de Datos):**
+Incluye en el análisis el archivo "Modelo de datos arteflujo.md" para generar las reglas de base de datos: 2. .rules/database.md (Persistencia y Docker). Regla de Oro: Toda definición de tabla o relación debe realizarse exclusivamente en el archivo schema.prisma utilizando Prisma ORM.
+
+**Prompt 3 (Seguridad):**
+Especificaciones para la seguridad: 3. .rules/security.md (Auth y Protección). Implementación de seguridad mediante JWT (JSON Web Tokens) para la gestión de sesiones. Configuración de RBAC (Role-Based Access Control).
+
+**Prompt 4 (Frontend UI):**
+Especificaciones para la frontend-ui: 4. .rules/frontend-ui.md (UX y Estándares de Diseño). Uso de Tailwind CSS para el estilado. Estandarización de iconos de acceso (🟢, 🟡, 🔵). Lógica del "Dial de Tiempo".
+
+**Prompt 5 (Estructura de Ficheros):**
+Actúa como un Senior Solutions Architect. Tu tarea es crear un archivo de reglas de configuración llamado .rules/project-structure.md basado estrictamente en la sección "3. Estructura de Ficheros Propuesta" del documento Diseño de arquitectura Arteflujo_ Hub Cultural.md. Requerimientos: Jerarquía de carpetas (NestJS/Next.js), definiciones de DB (modelos en schema.prisma), contenedores (docker-compose.yml en la raíz y carpeta /docker), componentes UI (Dial de Tiempo y Card Design en src/components) y microservicios (módulos backend aislados).
+
+**Prompt 6 (Respuesta Backend):**
+Actúa como un Senior Solutions Architect. Tu tarea es redactar un archivo de reglas de respuesta (response_type) específicamente para el desarrollo del Backend de latearte, basado en las especificaciones del archivo Diseño de arquitectura Arteflujo_ Hub Cultural.md. Instrucciones: Perfil de salida senior (sin explicaciones básicas), código completo Prisma (schema.prisma) y NestJS (con DTOs e interfaces), prioridad en escalabilidad independiente y arquitectura orientada a eventos. Manejo de errores por Circuit Breaker y estrategias de caché en Redis para el Motor de Agregación. Sin introducciones genéricas en las respuestas del asistente.
+
+**Prompt 7 (Dependencias):**
+Actúa como un Lead Developer. Analiza el archivo "Diseño de arquitectura Arteflujo_ Hub Cultural.md" y genera un archivo de reglas llamado .rules/dependencies.md que riga la instalación de paquetes. Requerimientos: NestJS/Prisma en Backend, Next.js/Tailwind en Frontend (Prohibición de CSS-in-JS por SEO), PostgreSQL/Redis en Infraestructura, RabbitMQ/Kafka para Mensajería, Jest para pruebas unitarias y Playwright/Cypress para E2E.
+
+---
+
+## 10. Organización y Sincronización Estructural
+
+**Prompt 1 (Compilación de Estructura):**
+En "project-structure.md", completar la estructura de archivos con la especificación completa punto 3 del "Diseño de arquitectura Arteflujo_ Hub Cultural.md".
+
+**Prompt 2 (Revisión Física):**
+Revisar (para detectar discrepancias entre las reglas de estructura y el estado real de los archivos físicos del repositorio).
+
+**Prompt 3 (Sincronización de Reglas):**
+Conservar el docker-compose.yml (en backend), actualizar la especificación en el rule (para preferir el App Router /app sobre /pages), y sincronizar la rule con lo que existe físicamente, dejando las especificaciones de carpetas aún no creadas como futuras.
+
+**Prompt 4 (Back-Porting a Diseño):**
+Actualizar la especificación punto 3 del "Diseño de arquitectura Arteflujo_ Hub Cultural.md" con la definición final plasmada en "project-structure.md".
+
+---
+
+## 11. Organización de Tickets de Trabajo
+
+**Prompt 1 (Organización de Tickets US1):**
+Con el archivo "work-tickets-US1-curioso-cultural.md" crear una carpeta para los tickets de la US1, y luego para cada ticket crear un archivo independiente. (Resultando en la creación de "documentacion/tickets-US1/" con archivos individuales ARF-001 al ARF-011).
+
+**Prompt 2 (Organización de Tickets US2):**
+En la carpeta "historias de usuario" con el archivo "work-tickets-US2-melomano.md" crear una carpeta para los tickets de la US2, y luego para cada ticket crear un archivo independiente. (Resultando en la creación de "documentacion/historias de usuario/tickets-US2/" con archivos individuales ARF-012 al ARF-019).
+
+**Prompt 3 (Organización de Tickets US3):**
+En la carpeta "historias de usuario" con el archivo "work-tickets-US3-cinefilo.md" crear una carpeta para los tickets de la US3, y luego para cada ticket crear un archivo independiente. (Resultando en la creación de "documentacion/historias de usuario/tickets-US3/" con archivos individuales ARF-020 al ARF-027).

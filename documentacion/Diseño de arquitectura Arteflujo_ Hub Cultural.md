@@ -36,40 +36,39 @@ La arquitectura de **arteflujo** está diseñada bajo un patrón de **Microservi
 
 **3\. Estructura de Ficheros Propuesta**
 
-Siguiendo el stack tecnológico recomendado (**Next.js** para el frontend y **NestJS/Node.js** para el backend), esta es la organización de carpetas sugerida:
+Siguiendo el stack tecnológico recomendado (**Next.js** para el frontend y **NestJS/Node.js** para el backend), esta es la organización de carpetas sincronizada con el scaffolding actual:
 
 ```text
-latearte-project/  
-├── frontend/                 # Proyecto Next.js (React)  
-│   ├── public/               # Activos estáticos (logos, iconos de acceso 🟢🟡🔵)  
-│   ├── src/  
-│   │   ├── components/       # UI: Dial de Tiempo, Card Design, Reproductor Modal  
-│   │   ├── hooks/            # Lógica compartida y estado global  
-│   │   ├── pages/            # Rutas: Home, Cinema, Stage, Short List, Watchlist  
-│   │   ├── services/         # Clientes para consumir el API Gateway interno  
-│   │   ├── styles/           # Temas y estilos CSS/Tailwind  
-│   │   └── utils/            # Formateadores de tiempo y lógica de filtrado  
-│   ├── next.config.js  
-│   └── package.json  
-│  
-├── backend/                  # Proyecto NestJS (Node.js)  
-│   ├── src/  
-│   │   ├── modules/          # Microservicios modulares  
-│   │   │   ├── aggregator/   # Lógica de indexación y Smart Embedding  
-│   │   │   ├── auth/         # Gestión de sesiones y JWT  
-│   │   │   ├── curated/      # Gestión de Obras, Hitos y Moods  
-│   │   │   └── user/         # Gestión de perfiles y Listas de Deseos  
-│   │   ├── common/           # Filtros de excepción, interceptores y DTOs  
-│   │   ├── config/           # Variables de entorno y llaves de APIs externas  
-│   │   └── database/         # Migraciones y modelos de PostgreSQL  
-│   ├── test/                 # Pruebas unitarias y de integración  
-│   ├── nest-cli.json  
-│   └── package.json  
-│  
+latearte-project/
+├── frontend/                 # Proyecto Next.js (React)
+│   ├── public/               # Activos estáticos (logos, iconos de acceso 🟢🟡🔵)
+│   ├── src/
+│   │   ├── app/              # Rutas (App Router): Home, Cinema, Stage, Short List, Watchlist
+│   │   ├── components/       # UI: Dial de Tiempo, Card Design, Reproductor Modal
+│   │   ├── hooks/            # Lógica compartida y estado global
+│   │   ├── services/         # Clientes para consumir la API Gateway interna
+│   │   ├── styles/           # Temas y estilos CSS/Tailwind (globals.css, etc.)
+│   │   └── utils/            # Formateadores de tiempo y lógica de filtrado
+│   ├── next.config.js
+│   └── package.json
+│
+├── backend/                  # Proyecto NestJS (Node.js)
+│   ├── src/
+│   │   ├── modules/          # Microservicios modulares (aggregator, auth, curated, user)
+│   │   ├── common/           # Filtros de excepción, interceptores y DTOs globales
+│   │   ├── config/           # Variables de entorno y llaves de APIs externas
+│   │   ├── database/         # Migraciones y modelos de PostgreSQL (referencia Prisma)
+│   │   └── main.ts           # Punto de entrada de la aplicación
+│   ├── docker-compose.yml    # Orquestación de infraestructura local (PG, Redis)
+│   ├── prisma/               # Definición de Esquema y Generación de Cliente
+│   ├── nest-cli.json
+│   └── package.json
+│
+├── .rules/                   # Reglas técnicas y estándares de desarrollo
 └── README.md                 # Documentación técnica general
 ```
 
-Esta estructura separa claramente las responsabilidades, permitiendo que el **Motor de Agregación** en el backend evolucione independientemente de la interfaz de usuario en el frontend.
+Esta estructura asegura la separación de responsabilidades, permitiendo que el **Motor de Agregación** y los demás microservicios evolucionen de forma independiente de la interfaz de usuario.
 
 ---
 

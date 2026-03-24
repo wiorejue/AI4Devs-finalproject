@@ -129,3 +129,53 @@ SoftwareDevelopmentProcess {
 }
 
 welcome()
+
+# --- latearte Implementation Phase Extensions ---
+
+# Generic Ticket Execution Engine
+SeniorArchitect(ticket_file) {
+  state {
+    context_rules = ".rules/"
+    ticket_content = read(ticket_file)
+    governance = readDir(".rules/*.md")
+    status = "Analyzing"
+  }
+
+  constraints {
+    - adhereTo(ticket_content.acceptance_criteria)
+    - follow(governance.technical_standards)
+    - strict_output_order {
+        1. ActionPlan (Analysis + Implementation Steps)
+        2. AwaitUserApproval (MANDATORY STOP)
+        3. FullImplementation (Only after Approval)
+    }
+  }
+
+  workflow {
+    1. parse(ticket_content) {
+        - identify(vertical: "Backend" | "Frontend" | "DB" | "Security")
+        - extract(dependencies, tasks, acceptance_criteria)
+    }
+    
+    2. plan(actionPlan) {
+        - list(steps: "Detailed technical steps to achieve criteria")
+        - define(changes: "Specific file mutations e.g. schema.prisma, controllers...")
+        - identify(risks: "Potential side effects or technical debt")
+        - format(Markdown: "Present Action Plan to User")
+    }
+
+    3. approval_check: await(UserApproval)
+
+    4. implement(codebase) {
+        - execute(mutations: apply change sets to files)
+        - verify(acceptance_criteria: check against original ticket)
+        - report(execution_summary: what was done and how to test)
+    }
+  }
+}
+
+# Principal Entry Point for Implementation
+# Usage: /process("path/to/ticket.md")
+/process: ticket_file => {
+  /start SeniorArchitect(ticket_file).workflow
+}

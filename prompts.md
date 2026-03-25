@@ -732,3 +732,9 @@ Normalizar los IDs de Moods en el frontend para incluir acentos (Melancólico, D
 
 **Prompt 13 (Optimización de Densidad Visual):**
 Compactar la interfaz de usuario: reducir encabezado, Dial de Tiempo (50%) y Mood Selector para permitir que el catálogo de resultados sea visible sin scroll inicial en resoluciones estándar.
+
+**Prompt 14 (Inicio ARF-009):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-009-hook-watchlist.md") (Implementar el hook useWatchlist para gestionar la persistencia de obras favoritas en el perfil del usuario).
+
+**Prompt 15 (Inicio ARF-005):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-005-backend-auth.md") - Implementación del componente de Login/Registro en Frontend para cerrar el ciclo de autenticación y permitir el uso real de la Watchlist.

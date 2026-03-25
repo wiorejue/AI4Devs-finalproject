@@ -16,7 +16,7 @@ interface Obra {
   titulo: string;
   director?: string;
   duracion_min: number;
-  vibe_mood?: string;
+  url_contenido: string;
   estado_acceso: 'ABIERTO' | 'SUSCRIPCION' | 'VOD';
   plataforma: {
     nombre: string;
@@ -31,11 +31,11 @@ interface Obra {
 
 interface ObraCardProps {
   obra: Obra;
-  onSave?: (id: string) => void;
-  isSaved?: boolean;
+  isSaved: boolean;
+  onToggleWatchlist: (id: string) => void;
 }
 
-export const ObraCard = ({ obra, onSave, isSaved }: ObraCardProps) => {
+export const ObraCard = ({ obra, isSaved, onToggleWatchlist }: ObraCardProps) => {
   const primaryHito = obra.hitos?.[0];
 
   return (
@@ -84,29 +84,35 @@ export const ObraCard = ({ obra, onSave, isSaved }: ObraCardProps) => {
           </div>
         )}
 
-        {/* Info Grid */}
-        <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/5">
+        {/* Footer: Duration + Actions */}
+        <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
           <div className="flex flex-col">
-            <span className="text-[9px] uppercase tracking-widest text-white/20">Duración</span>
-            <span className="text-sm font-medium text-white/80">{obra.duracion_min} min</span>
+            <span className="text-[10px] text-white/20 uppercase tracking-widest mb-1">Duración</span>
+            <span className="text-lg font-bold text-white tabular-nums">
+              {obra.duracion_min} min
+            </span>
           </div>
-          
-          <div className="flex items-center gap-2">
+
+          <div className="flex gap-2">
             <button 
-              onClick={() => onSave?.(obra.id)}
+              onClick={() => onToggleWatchlist(obra.id)}
               className={cn(
-                "p-2.5 rounded-full border transition-all duration-300",
+                "p-3 rounded-full border transition-all duration-300",
                 isSaved 
-                  ? "bg-cyan-500 border-cyan-400 text-white shadow-[0_0_15px_rgba(34,211,238,0.4)]" 
+                  ? "bg-cyan-500/10 border-cyan-500/30 text-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.2)]" 
                   : "bg-white/5 border-white/10 text-white/40 hover:text-white hover:bg-white/10"
               )}
             >
-              <Bookmark className="w-4 h-4" />
+              <Bookmark className={cn("w-5 h-5", isSaved && "fill-current")} />
             </button>
-            
-            <button className="p-2.5 rounded-full bg-white/5 border border-white/10 text-white/40 hover:text-white hover:bg-white/10 transition-all duration-300">
-              <ExternalLink className="w-4 h-4" />
-            </button>
+            <a 
+              href={obra.url_contenido}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-white/5 border border-white/10 rounded-full text-white/40 hover:text-white hover:bg-white/10 transition-all duration-300"
+            >
+              <ExternalLink className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>

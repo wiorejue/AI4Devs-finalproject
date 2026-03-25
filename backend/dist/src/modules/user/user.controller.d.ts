@@ -7,17 +7,20 @@ export declare class UserController {
         obra: {
             plataforma: {
                 id: string;
-                fecha_creacion: Date;
-                permite_iframe: boolean;
-                activo: boolean;
-                fecha_actualizacion: Date;
                 nombre: string;
                 url_base: string;
                 logo_url: string | null;
+                permite_iframe: boolean;
+                activo: boolean;
+                fecha_creacion: Date;
+                fecha_actualizacion: Date;
             };
         } & {
             id: string;
+            permite_iframe: boolean;
+            activo: boolean;
             fecha_creacion: Date;
+            fecha_actualizacion: Date;
             titulo: string;
             titulo_original: string | null;
             sinopsis: string | null;
@@ -28,19 +31,16 @@ export declare class UserController {
             valor_cultural: number | null;
             imagen_poster_url: string | null;
             url_contenido: string;
-            permite_iframe: boolean;
             eje_vertical: import("@prisma/client").$Enums.EjeVertical;
             estado_acceso: import("@prisma/client").$Enums.EstadoAcceso;
-            activo: boolean;
-            fecha_actualizacion: Date;
             plataforma_id: string;
         };
     } & {
         id: string;
-        notas: string | null;
         fecha_creacion: Date;
-        usuario_id: string;
         obra_id: string;
+        notas: string | null;
+        usuario_id: string;
     }>;
     getWatchlist(req: any): Promise<({
         obra: {
@@ -50,7 +50,10 @@ export declare class UserController {
             };
         } & {
             id: string;
+            permite_iframe: boolean;
+            activo: boolean;
             fecha_creacion: Date;
+            fecha_actualizacion: Date;
             titulo: string;
             titulo_original: string | null;
             sinopsis: string | null;
@@ -61,18 +64,15 @@ export declare class UserController {
             valor_cultural: number | null;
             imagen_poster_url: string | null;
             url_contenido: string;
-            permite_iframe: boolean;
             eje_vertical: import("@prisma/client").$Enums.EjeVertical;
             estado_acceso: import("@prisma/client").$Enums.EstadoAcceso;
-            activo: boolean;
-            fecha_actualizacion: Date;
             plataforma_id: string;
         };
     } & {
         id: string;
-        notas: string | null;
         fecha_creacion: Date;
-        usuario_id: string;
         obra_id: string;
+        notas: string | null;
+        usuario_id: string;
     })[]>;
 }

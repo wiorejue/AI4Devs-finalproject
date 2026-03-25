@@ -717,3 +717,18 @@ Modificar el plan de acción para conservar los ENUMs existentes en `schema.pris
 
 **Prompt 8 (Inicio ARF-006):**
 /process("documentacion/historias de usuario/tickets-US1/ARF-006-componente-dial-tiempo.md") (Construir en React el componente interactivo Dial de Tiempo para filtrar por duración).
+
+**Prompt 9 (Inicio ARF-007):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-007-selector-mood.md") (Implementar el selector de estados de ánimo (Moods) con iconos y sincronización de URL).
+
+**Prompt 10 (Inicio ARF-008):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-008-componente-obra-card.md") (Crear el componente visual ObraCard con indicadores de acceso y botón de guardado).
+
+**Prompt 11 (Corrección 120+ min):**
+Corregir filtro de larga duración (120+) para que use el valor centinela 999 en el backend, permitiendo ver obras como Metropolis (153 min) cuando el usuario selecciona el máximo del dial.
+
+**Prompt 12 (Corrección Acentos Moods):**
+Normalizar los IDs de Moods en el frontend para incluir acentos (Melancólico, Dinámico), sincronizando el envío de parámetros con los valores exactos almacenados en la base de datos de Seed.
+
+**Prompt 13 (Optimización de Densidad Visual):**
+Compactar la interfaz de usuario: reducir encabezado, Dial de Tiempo (50%) y Mood Selector para permitir que el catálogo de resultados sea visible sin scroll inicial en resoluciones estándar.

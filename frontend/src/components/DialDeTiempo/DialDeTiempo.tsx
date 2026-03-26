@@ -20,7 +20,7 @@ export const DialDeTiempo = () => {
 
   // Buscar el índice inicial basado en el query param
   const initialValue = Number(searchParams.get('duracion_max')) || 0;
-  
+
   // Si es 999 o mayor, es el índice 7 (120+)
   // Si no hay valor, por defecto usamos 30 (índice 3)
   const getInitialIndex = () => {
@@ -63,18 +63,16 @@ export const DialDeTiempo = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center p-4 bg-black/20 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden group">
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
-      <div className="relative flex items-center gap-2 mb-2">
-        <div className="p-1.5 bg-white/5 rounded-full border border-white/10">
-          <Clock className="w-3.5 h-3.5 text-cyan-400" />
+    <div className="relative flex flex-col items-center justify-center p-6 px-16 bg-zinc-900/40 backdrop-blur-md border border-white/5 rounded-[2.5rem] overflow-hidden group max-w-2xl mx-auto w-full">
+      {/* Label & Icon */}
+      <div className="flex items-center gap-2 mb-4">
+        <div className="p-1.5 bg-cyan-500/10 rounded-full border border-cyan-500/20">
+          <Clock className="w-4 h-4 text-cyan-400" />
         </div>
-        <h3 className="text-[10px] font-medium tracking-widest text-white/50 uppercase">Dial de Tiempo</h3>
+        <h3 className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/50">Dial de Tiempo</h3>
       </div>
 
-      <div className="relative w-full max-w-[240px] flex flex-col items-center">
+      <div className="relative w-full flex flex-col items-center">
         {/* Value Display */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -82,18 +80,22 @@ export const DialDeTiempo = () => {
             initial={{ y: 5, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -5, opacity: 0 }}
-            className="text-4xl font-bold text-white mb-1 tabular-nums drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+            className="text-5xl font-light text-white mb-2 tabular-nums tracking-[0.05em]"
           >
             {formatText(value)}
           </motion.div>
         </AnimatePresence>
-        
-        <p className="text-[10px] text-white/40 mb-4 text-center">
-          "Contenido curado para tu tiempo"
+
+        <p className="text-[9px] text-white/20 mb-6 font-bold tracking-[0.2em] uppercase">
+          "Contenido seleccionado"
         </p>
 
-        {/* Custom Slider */}
-        <div className="relative w-full h-8 flex items-center">
+        {/* Custom Slider Segment */}
+        <div className="relative w-full h-1 bg-white/5 rounded-full mb-4">
+          <div
+            className="absolute h-full bg-cyan-500 rounded-full transition-all duration-300"
+            style={{ width: `${(index / (DURACIONES.length - 1)) * 100}%` }}
+          />
           <input
             type="range"
             min="0"
@@ -101,27 +103,33 @@ export const DialDeTiempo = () => {
             step="1"
             value={index}
             onChange={handleChange}
-            className="absolute inset-0 w-full h-1 bg-white/10 rounded-full appearance-none cursor-pointer accent-cyan-500 outline-none hover:bg-white/20 transition-colors"
+            className="absolute inset-x-0 -top-4 bottom-0 w-full h-10 opacity-0 cursor-pointer z-10"
           />
-          
+
           {/* Ticks */}
-          <div className="absolute inset-0 flex justify-between items-center pointer-events-none px-1">
+          <div className="absolute inset-0 flex justify-between items-center pointer-events-none px-0.5">
             {DURACIONES.map((_, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className={cn(
-                  "w-1 h-1 rounded-full transition-all duration-300",
-                  i <= index ? "bg-cyan-400 scale-125 shadow-[0_0_8px_rgba(34,211,238,0.8)]" : "bg-white/20"
+                  "w-1 h-1 rounded-full transition-all duration-500",
+                  i <= index ? "bg-cyan-400 scale-125 shadow-[0_0_10px_rgba(34,211,238,0.5)]" : "bg-white/10"
                 )}
               />
             ))}
           </div>
+
+          {/* Thumb Indicator (Visual only) */}
+          <div
+            className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-500 rounded-full border-2 border-zinc-900 shadow-[0_0_15px_rgba(34,211,238,0.6)] transition-all duration-300 pointer-events-none"
+            style={{ left: `calc(${(index / (DURACIONES.length - 1)) * 100}% - 8px)` }}
+          />
         </div>
 
         {/* Labels below slider */}
-        <div className="flex justify-between w-full mt-2 invisible sm:visible">
-          <span className="text-[8px] text-white/20 tracking-widest uppercase">Cortos</span>
-          <span className="text-[8px] text-white/20 tracking-widest uppercase">Largo</span>
+        <div className="flex justify-between w-full opacity-20">
+          <span className="text-[8px] font-bold tracking-widest uppercase">Cortos</span>
+          <span className="text-[8px] font-bold tracking-widest uppercase">Largo</span>
         </div>
       </div>
     </div>

@@ -32,7 +32,7 @@ export const MoodSelector = () => {
   );
 
   return (
-    <div className="flex flex-wrap justify-center gap-2 p-2">
+    <div className="flex flex-wrap justify-center gap-2.5 p-2">
       {MOODS.map((mood) => {
         const isSelected = selectedMood === mood.id;
         const Icon = mood.icon;
@@ -44,21 +44,14 @@ export const MoodSelector = () => {
             whileTap={{ scale: 0.98 }}
             onClick={() => toggleMood(mood.id)}
             className={cn(
-              "flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium transition-all duration-300",
-              "border border-white/5 backdrop-blur-md",
+              "relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest transition-all duration-500",
               isSelected
-                ? "bg-white/10 border-white/20 text-white shadow-[0_0_10px_rgba(255,255,255,0.05)]"
-                : "bg-black/20 text-white/30 hover:text-white/50 hover:bg-white/5"
+                ? "bg-white/10 border border-white/20 text-white shadow-lg"
+                : "bg-zinc-900/40 border border-white/5 text-white/20 hover:text-white/40 hover:border-white/10"
             )}
           >
-            <Icon size={12} className={cn(isSelected ? mood.color : "text-white/20")} />
+            <Icon size={10} className={cn(isSelected ? mood.color : "text-white/10")} />
             {mood.label}
-            {isSelected && (
-              <motion.div
-                layoutId="active-mood"
-                className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent blur-[1px]"
-              />
-            )}
           </motion.button>
         );
       })}

@@ -45,19 +45,19 @@ export const ObraCard = ({ obra, isSaved, onToggleWatchlist }: ObraCardProps) =>
       whileHover={{ y: -5 }}
       className="group relative flex flex-col h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 hover:bg-white/[0.08] hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] text-left"
     >
-      <div className="p-6 flex flex-col h-full">
+      <div className="p-5 flex flex-col h-full">
         {/* Header: Platform + Badges */}
-        <div className="flex justify-between items-start mb-4 gap-4">
+        <div className="flex justify-between items-start mb-3 gap-4">
           <div className="flex flex-col">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold mb-1">
+            <span className="text-[9px] uppercase tracking-[0.2em] text-white/20 font-bold mb-0.5">
               {obra.plataforma.nombre}
             </span>
           </div>
           
-          <div className="flex flex-col items-end gap-2">
+          <div className="flex flex-col items-end gap-1.5">
             <AccesoIndicator estado={obra.estado_acceso} />
             {obra.plataforma.permite_iframe && (
-              <div className="px-2 py-0.5 bg-cyan-500/10 text-cyan-400 text-[8px] uppercase font-bold tracking-widest rounded border border-cyan-500/20 whitespace-nowrap">
+              <div className="px-1.5 py-0.5 bg-cyan-500/10 text-cyan-400 text-[7px] uppercase font-bold tracking-widest rounded border border-cyan-500/20 whitespace-nowrap">
                 En Reproductor
               </div>
             )}
@@ -65,11 +65,11 @@ export const ObraCard = ({ obra, isSaved, onToggleWatchlist }: ObraCardProps) =>
         </div>
 
         {/* Title & Director */}
-        <div className="mb-6">
-          <h3 className="text-xl font-bold text-white line-clamp-2 leading-tight group-hover:text-cyan-400 transition-colors">
+        <div className="mb-4">
+          <h3 className="text-lg font-bold text-white line-clamp-2 leading-tight group-hover:text-cyan-400 transition-colors">
             {obra.titulo}
           </h3>
-          <p className="text-sm text-white/50 mt-2 italic font-light">
+          <p className="text-xs text-white/40 mt-1.5 italic font-light">
             {obra.director || 'Director Desconocido'}
           </p>
         </div>

@@ -8,6 +8,7 @@
 5. [Historias de usuario](#5-historias-de-usuario)
 6. [Tickets de trabajo](#6-tickets-de-trabajo)
 7. [Pull requests](#7-pull-requests)
+8. [Instalación y Ejecución](#8-instalación-y-ejecución)
 
 ---
 
@@ -1057,5 +1058,62 @@ Crear la página del eje "The Cinema" con su buscador especializado por nombre d
 
 > [!TIP]
 > Puedes consultar el detalle de cada Pull Request directamente en la pestaña de **Pull Requests** de este repositorio en GitHub.
+
+---
+
+## 🚀 8. Instalación y Ejecución
+
+Para poner en marcha el ecosistema completo de **arteflujo**, sigue estos pasos:
+
+### 8.1. Prerrequisitos
+- **Node.js** (v18 o superior)
+- **Docker** y **Docker Compose**
+- **NPM** o Yarn
+
+### 8.2. Backend (NestJS + Prisma + Docker)
+
+1. Entra a la carpeta del servidor:
+   ```bash
+   cd backend
+   ```
+2. Instala dependencias:
+   ```bash
+   npm install
+   ```
+3. Levanta la infraestructura (PostgreSQL + Redis):
+   ```bash
+   docker-compose up -d
+   ```
+4. Configura la base de datos y carga el catálogo curado:
+   ```bash
+   npx prisma migrate dev
+   npx prisma db seed
+   ```
+5. Inicia el servidor de desarrollo:
+   ```bash
+   npm run start:dev
+   ```
+
+### 8.3. Frontend (Next.js)
+
+1. Abre una nueva terminal y entra a la carpeta del cliente:
+   ```bash
+   cd frontend
+   ```
+2. Instala dependencias:
+   ```bash
+   npm install
+   ```
+3. Inicia la interfaz de usuario:
+   ```bash
+   npm run dev
+   ```
+
+Accede a la plataforma en: 👉 **[http://localhost:3000](http://localhost:3000)**
+
+---
+
+> [!IMPORTANT]
+> Para detalles avanzados de despliegue en la nube o pruebas automatizadas, consulta [backend/despliegue.md](backend/despliegue.md).
 
 

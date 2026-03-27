@@ -738,3 +738,18 @@ Compactar la interfaz de usuario: reducir encabezado, Dial de Tiempo (50%) y Moo
 
 **Prompt 15 (Inicio ARF-005):**
 /process("documentacion/historias de usuario/tickets-US1/ARF-005-backend-auth.md") - Implementación del componente de Login/Registro en Frontend para cerrar el ciclo de autenticación y permitir el uso real de la Watchlist.
+
+**Prompt 16 (Inicio ARF-010):**
+/process("documentacion/historias de usuario/tickets-US1/ARF-010-pagina-principal.md") - Implementación de estados de carga (SkeletonCard), pantalla de resultados vacíos (EmptyState) y funcionalidad de selección aleatoria ("Sorpréndeme").
+
+**Prompt 17 (Rediseño Layout 004):**
+Rediseñar la distribución de la interfaz basándose en la "Presentación 004": compactar el Dial de Tiempo y el MoodSelector para que el catálogo de obras sea visible sin scroll inicial, priorizando el contenido artístico.
+
+**Prompt 18 (Optimización Ultra-Compacta):**
+Hacer la interfaz aún más compacta: organizar filtros en una sola fila (desktop), reducir la escala del encabezado (text-4xl) y disminuir los paddings globales de las tarjetas para maximizar la densidad de información.
+
+**Prompt 19 (Refinamiento Dial Panorámico):**
+Ajustar el Dial de Tiempo para que sea más ancho (max-w-2xl), con tipografía delgada (`font-light`) y alta (`text-5xl`), resaltando el icono del reloj como un instrumento de precisión y reduciendo el ruido visual.
+
+**Prompt 20 (Mantenimiento de Enlaces en Seed):**
+Actualiza el archivo `backend/prisma/seed.ts` para sustituir el enlace `[URL_ORIGINAL]` por `[NUEVA_URL]`. He verificado personalmente que el nuevo enlace es operativo y permite la reproducción (embed), por lo que **no es necesario que utilices el subagente de navegación para validarlo**. Por favor, ajusta también el `titulo`, `director` y `duracion_min` en el objeto de la obra para que reflejen la información del nuevo contenido. Una vez realizados los cambios, ejecuta el comando `npx prisma db seed` para impactar la base de datos.

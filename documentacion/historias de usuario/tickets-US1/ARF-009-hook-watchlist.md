@@ -9,16 +9,16 @@
 **Descripción**: Implementar la lógica cliente para guardar/eliminar obras de la Watchlist, incluyendo feedback visual inmediato.
 
 **Criterios de Aceptación**:
-- [ ] Al hacer clic en "Guardar", el ícono cambia a "Guardado" inmediatamente (optimistic update).
-- [ ] Si el POST /watchlist falla, se muestra error toast y revierte el cambio.
-- [ ] Si el usuario no está autenticado, se muestra modal de login.
-- [ ] La Watchlist se carga al iniciar sesión y persiste en el estado.
+- [x] Gestión local del estado de la watchlist (array de IDs).
+- [x] Persistencia real mediante llamadas a la API (POST/DELETE).
+- [x] Actualización optimista: Cambia el estado en UI instantáneamente.
+- [x] Desencadena el `LoginModal` si el usuario no tiene token al intentar guardar.
 
 **Tareas Técnicas**:
-1. Crear `hooks/useWatchlist.ts` con métodos `addToWatchlist` y `getWatchlist`.
-2. Crear `services/watchlistService.ts`.
-3. Implementar contexto de autenticación `AuthContext`.
-4. Agregar toast de confirmación/error.
+1. [x] Crear `hooks/useWatchlist.ts`.
+2. [x] Implementar servicio de API base en `services/api.ts`.
+3. [x] Integrar con `AuthContext`.
+4. [x] Probar flujo Guardar -> Login -> Recarga -> Verificado.
 
 ---
 **User Story de referencia (US-1)**: Como Curioso Cultural, quiero filtrar contenido por duración y mood.

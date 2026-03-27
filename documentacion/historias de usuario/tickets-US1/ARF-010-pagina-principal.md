@@ -9,10 +9,10 @@
 **Descripción**: Ensamblar la página principal de descubrimiento integrando el Dial de Tiempo, el MoodSelector y la galería de ObraCards.
 
 **Criterios de Aceptación**:
-- [ ] Muestra el Dial de Tiempo y MoodSelector en la parte superior.
-- [ ] Los resultados se actualizan automáticamente al cambiar filtros.
-- [ ] El botón "Sorpréndeme" muestra una obra aleatoria del conjunto filtrado.
-- [ ] Estado de carga (skeleton cards) y estado vacío implementados.
+- [x] Muestra el Dial de Tiempo y MoodSelector en la parte superior.
+- [x] Los resultados se actualizan automáticamente al cambiar filtros.
+- [x] El botón "Sorpréndeme" muestra una obra aleatoria del conjunto filtrado.
+- [x] Estado de carga (skeleton cards) y estado vacío implementados.
 
 **Tareas Técnicas**:
 1. Crear/actualizar `app/page.tsx` ensamblando los componentes.

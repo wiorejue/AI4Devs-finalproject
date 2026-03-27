@@ -49,10 +49,17 @@ Estas entidades gestionan la información de las piezas y su clasificación cult
   * titulo: Nombre de la pieza.  
   * director\_artista: Creador de la obra.  
   * region: País o zona de origen.  
-  * duracion\_min: Tiempo total (esencial para el **Dial de Tiempo**).  
-  * vibe\_mood: Etiqueta de estado de ánimo (ej: Melancólico, Inspirador).  
-  * valor\_cultural: Texto breve que explica por qué la obra es un hito (máx. 280 caracteres).  
-* **EJE\_VERTICAL:** Define los tres pilares de la plataforma: **The Short List** (Cortos), **The Stage** (Escenarios) y **The Cinema** (Cine de autor).  
+*   **duracion\_min:** Tiempo total (esencial para el **Dial de Tiempo**).  
+  *   **vibe\_mood:** Etiqueta de estado de ánimo para filtrado emocional. Los 4 *moods* del MVP son:
+      *   ⚡ *Dinámico:* Ágil, comedia, acción o ritmo rápido.
+      *   🌧️ *Melancólico:* Drama, dolor, terror u oscuridad.
+      *   🌌 *Contemplativo:* Cine mudo, filosofía, documentales lentos o abstracto.
+      *   ✨ *Inspirador:* Épico, triunfal, música sinfónica monumental o educativo.
+  *   **valor\_cultural:** Texto breve que explica por qué la obra es un hito (máx. 280 caracteres).  
+* **EJE\_VERTICAL:** Define los tres pilares de clasificación principal de la plataforma:
+  *   🎬 **The Short List (Cortos):** Cortometrajes, animaciones y proyectos indie rápidos.
+  *   🎼 **The Stage (Escenarios):** Conciertos, jazz, música, teatro y actuaciones en vivo.
+  *   📽️ **The Cinema (Cine de autor):** Películas clásicas, largometrajes y material de festivales mayores.
 * **HITO:** Almacena los reconocimientos de la obra, como premios Oscar o menciones en festivales como Cannes o la Berlinale.  
 * **DATO\_CONTEXTO:** Información para el **Modo Contexto** que aparece como pop-up durante la reproducción.
 

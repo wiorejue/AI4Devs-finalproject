@@ -179,3 +179,128 @@ SeniorArchitect(ticket_file) {
 /process: ticket_file => {
   /start SeniorArchitect(ticket_file).workflow
 }
+
+# Advanced Seed Maintenance Engine (oEmbed API Version)
+# Allows quick link replacement extracting real metadata at zero logic cost
+SeedMaintenance(url_original, nueva_url) {
+  state {
+    target_file = "backend/prisma/seed.ts"
+    verified_by_user = true 
+  }
+
+  constraints {
+    - NEVER_USE_BROWSER_SUBAGENT() # CRITICAL: Ensure no browser agents are launched.
+    - NEVER_USE_SEARCH_WEB()       # CRITICAL: Do not search the web for verification.
+    - skip_network_verification(true) 
+    - USE_OEMBED_API_ONLY(): "Use read_url_content or curl to call YouTube/Vimeo oEmbed JSON endpoints"
+  }
+
+  workflow {
+    1. extract_metadata(nueva_url) {
+        - if (is_vimeo) call("https://vimeo.com/api/oembed.json?url=" + nueva_url)
+        - if (is_youtube) call("https://www.youtube.com/oembed?url=" + nueva_url + "&format=json")
+        - extract(titulo_nuevo, director_nuevo, descripcion_texto)
+        - extract_or_calculate(duracion_nueva_calc_en_min)
+    }
+
+    2. categorize_eje_vertical(titulo_nuevo, descripcion_texto) {
+        - rule: if text contains ["short", "animación", "cortometraje", "animation"] -> return "SHORT_LIST"
+        - rule: if text contains ["live", "concert", "concierto", "symphony", "jazz", "stage"] -> return "STAGE"
+        - rule: if text contains ["movie", "film", "película", "restored", "masterpiece", "192", "193"] -> return "CINEMA"
+        - default: return "SHORT_LIST"
+    }
+
+    3. categorize_vibe_mood(titulo_nuevo, descripcion_texto) {
+        - rule: if text contains ["drama", "sad", "horror", "dark", "tragedy", "melancholy", "melancol"] -> return "Melancólico"
+        - rule: if text contains ["action", "comedy", "fast", "rhythm", "fun", "dinámico"] -> return "Dinámico"
+        - rule: if text contains ["epic", "beautiful", "inspiring", "symphony", "triumph", "education", "documentary"] -> return "Inspirador"
+        - default: return "Contemplativo"
+    }
+
+    4. scan(target_file) {
+        - find(where: url_contenido == url_original)
+    }
+    
+    5. mutate(metadata) {
+        - replace(url_contenido: nueva_url)
+        - replace(titulo: titulo_nuevo)
+        - replace(director: director_nuevo)
+        - replace(duracion_min: duracion_nueva_calc_en_min)
+        - replace(eje_vertical: categorize_eje_vertical())
+        - replace(vibe_mood: categorize_vibe_mood())
+    }
+
+    4. sync(database) {
+        - execute("npx prisma db seed")
+        - report(result: "Catálogo actualizado y sincronizado")
+    }
+  }
+}
+
+# Short command for seed replacement
+# Usage: /seed.replace("old_url", "new_url")
+/seed.replace: (url_original, nueva_url) => {
+  SeedMaintenance(url_original, nueva_url).workflow
+}
+
+# Advanced Seed Addition Engine (oEmbed API Version)
+# Allows appending new videos extracting metadata autonomously
+SeedAddition(nueva_url) {
+  state {
+    target_file = "backend/prisma/seed.ts"
+  }
+
+  constraints {
+    - NEVER_USE_BROWSER_SUBAGENT() 
+    - NEVER_USE_SEARCH_WEB()       
+    - USE_OEMBED_API_ONLY()
+  }
+
+  workflow {
+    1. extract_metadata(nueva_url) {
+        - if (is_vimeo) call("https://vimeo.com/api/oembed.json?url=" + nueva_url)
+        - if (is_youtube) call("https://www.youtube.com/oembed?url=" + nueva_url + "&format=json")
+        - extract(titulo_nuevo, director_nuevo, descripcion_texto)
+        - extract_or_calculate(duracion_min_calculada) # Extract from oEmbed or calculate sensible default
+    }
+
+    2. categorize_eje_vertical(titulo_nuevo, descripcion_texto) {
+        - rule: if text contains ["short", "animación", "cortometraje", "animation"] -> return "SHORT_LIST"
+        - rule: if text contains ["live", "concert", "concierto", "symphony", "jazz", "stage"] -> return "STAGE"
+        - rule: if text contains ["movie", "film", "película", "restored", "masterpiece", "192", "193"] -> return "CINEMA"
+        - default: return "SHORT_LIST"
+    }
+
+    3. categorize_vibe_mood(titulo_nuevo, descripcion_texto) {
+        - rule: if text contains ["drama", "sad", "horror", "dark", "tragedy", "melancholy", "melancol"] -> return "Melancólico"
+        - rule: if text contains ["action", "comedy", "fast", "rhythm", "fun", "dinámico"] -> return "Dinámico"
+        - rule: if text contains ["epic", "beautiful", "inspiring", "symphony", "triumph", "education", "documentary"] -> return "Inspirador"
+        - default: return "Contemplativo"
+    }
+
+    4. insert(target_file) {
+        - append_to_bottom_of_catalog_array({
+            titulo: titulo_nuevo,
+            director: director_nuevo,
+            duracion_min: duracion_min_calculada,
+            vibe_mood: categorize_vibe_mood(),
+            eje_vertical: categorize_eje_vertical(),
+            estado_acceso: 'ABIERTO',
+            plataforma_id: detect_platform(nueva_url),
+            url_contenido: nueva_url
+        })
+    }
+
+    3. sync(database) {
+        - execute("npx prisma db seed")
+        - report(result: "Nueva obra añadida y base de datos resincronizada")
+    }
+  }
+}
+
+# Command for adding new pieces to the seed
+# Usage: /seed.add("new_url")
+# Example: /seed.add("https://www.youtube.com/watch?v=new")
+/seed.add: (nueva_url) => {
+  SeedAddition(nueva_url).workflow
+}
